@@ -1,0 +1,3 @@
+
+rootProject.name = "hotel-reservations"
+
