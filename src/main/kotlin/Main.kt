@@ -1,11 +1,7 @@
-package javafx.example
-
 import javafx.application.Application
 import javafx.application.Application.launch
+import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
-import javafx.scene.control.Label
-import javafx.scene.layout.Pane
-import javafx.scene.layout.VBox
 import javafx.stage.Stage
 
 
@@ -21,19 +17,12 @@ class MainWindow : Application()
 
     override fun start(primaryStage: Stage)
     {
-        val layout = VBox()
 
-        // Ovde ide nas GUI
-        layout.apply {
-            children.add(Label("Hello, World!"))
-        }
+        val fxmlLoader = FXMLLoader(MainWindow::class.java.getResource("HotelView.fxml"))
 
-
-
-        // do ovde
-        primaryStage.run {
-            scene = Scene(layout, WIDTH, HEIGTH)
-            show()
-        }
+        val scene = Scene(fxmlLoader.load(), 320.0, 240.0)
+        primaryStage.title = "Hello!"
+        primaryStage.scene = scene
+        primaryStage.show()
     }
 }

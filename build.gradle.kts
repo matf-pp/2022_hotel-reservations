@@ -18,6 +18,7 @@ dependencies {
 }
 
 javafx {
+    version = "16"
     modules("javafx.controls", "javafx.fxml")
 }
 
