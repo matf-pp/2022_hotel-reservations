@@ -2,6 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.6.20"
+    id("application")
+    id("org.openjfx.javafxplugin") version "0.0.12"
 }
 
 group = "me.aleksa"
@@ -14,6 +16,11 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
 }
+
+javafx {
+    modules("javafx.controls", "javafx.fxml")
+}
+
 
 tasks.test {
     useJUnit()
