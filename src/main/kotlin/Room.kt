@@ -1,17 +1,17 @@
 import javafx.scene.Scene
+import java.util.Date
 
-abstract class Room {
-    var price_per_night : Double? = null
+abstract class Room() {
+    open var price_per_night : Double = 0.0
     var pictures : MutableList<String>? = null
-    var availability : MutableMap<String, Int>? = null
-    var num_beds : Int? = null
+    var availability : MutableMap<Int, List<Date>>? = null
+    open var num_beds : Int = 0
 
-    constructor(price_per_night: Double, num_beds: Int, pictures: MutableList<String>? = null, availability: MutableMap<String,Int>? = null){
-        this.price_per_night = price_per_night
+    constructor(num_beds : Int) : this() {
         this.num_beds = num_beds
-        this.availability = availability
-        this.pictures = pictures
     }
+
+
 
     abstract fun detailed_view() : Scene
 }
