@@ -1,4 +1,5 @@
 import javafx.scene.Scene
+import java.time.LocalDate
 
 class Superior(num_beds : Int) : Room(num_beds) {
     var list_id  = dodaj_id()

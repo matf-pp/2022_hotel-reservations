@@ -1,6 +1,5 @@
 import javafx.scene.Scene
-import java.text.DateFormat
-import java.util.Date
+import java.time.LocalDate
 
 class Basic(num_beds : Int) : Room (num_beds){
     var list_id  = dodaj_id()

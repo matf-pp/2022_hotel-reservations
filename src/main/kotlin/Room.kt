@@ -1,10 +1,10 @@
 import javafx.scene.Scene
-import java.util.Date
+import java.time.LocalDate
 
 abstract class Room() {
     open var price_per_night : Double = 0.0
     var pictures : MutableList<String>? = null
-    var availability : MutableMap<Int, List<Date>>? = null
+    var availability : MutableMap<Int, List<LocalDate>>? = null
     open var num_beds : Int = 0
 
     constructor(num_beds : Int) : this() {
