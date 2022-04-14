@@ -1,7 +1,4 @@
-import Controllers.BasicController
-import Controllers.HotelController
-import Controllers.PremiumApartmentController
-import Controllers.SuperiorController
+import Controllers.*
 import Rooms.Basic
 import Rooms.PremiumApartment
 import Rooms.Superior
@@ -19,8 +16,8 @@ fun main(args: Array<String>)
 
 class MainWindow : Application()
 {
-    val WIDTH = 400.0
-    val HEIGTH = 400.0
+    val WIDTH = 800.0
+    val HEIGTH = 800.0
 
     override fun start(primaryStage: Stage)
     {
@@ -51,10 +48,18 @@ class MainWindow : Application()
         val premiumFXML = FXMLLoader(MainWindow::class.java.getResource("PremiumApartmentView.fxml"))
 
         // load controller instances and roots for each room
+
         val hotelRoot : Parent = hotelFXML.load()
         val basicRoot : Parent = basicFXML.load()
         val superiorRoot : Parent = superiorFXML.load()
         val premiumRoot : Parent = premiumFXML.load()
+
+        // init static head controller
+        HeadController.setterStage(primaryStage)
+        HeadController.add_windows_to_map("hotel" , Scene(hotelRoot, HEIGTH, WIDTH))
+        HeadController.add_windows_to_map("basic" , Scene(basicRoot, HEIGTH, WIDTH))
+        HeadController.add_windows_to_map("superior" , Scene(superiorRoot, HEIGTH, WIDTH))
+        HeadController.add_windows_to_map("premium" , Scene(premiumRoot , HEIGTH, WIDTH))
 
         // get controllers
         var hotelController : HotelController = hotelFXML.getController()
@@ -62,25 +67,22 @@ class MainWindow : Application()
         var premiumController : PremiumApartmentController= premiumFXML.getController()
         var superiorController : SuperiorController = superiorFXML.getController()
 
+        // init hotel controller
+        hotelController.addRoomAndMapIt("basic_two" , basic_room_two)
+        hotelController.addRoomAndMapIt("basic_three" , basic_room_three)
+        hotelController.addRoomAndMapIt("basic_four" , basic_room_four)
 
-        // set root for every room that is instanciated
-        // TODO uraditi i za ostale sobe
-        basic_room_two.root = basicRoot
-        premium_apartment.root = premiumRoot
+        hotelController.addRoomAndMapIt("superior_two" , superior_room_two)
+        hotelController.addRoomAndMapIt("superior_three" , superior_room_three)
+        hotelController.addRoomAndMapIt("superior_four" , superior_room_four)
 
-
-        // Add room objects to controllers
-        basicController.room = basic_room_two
-        premiumController.room = premium_apartment
-
-        // testing
-        HotelController.Stage = primaryStage
+        hotelController.addRoomAndMapIt("premium_room" , premium_apartment)
 
         hotelController.basicController = basicController
         hotelController.superiorController = superiorController
         hotelController.premiumApartmentController = premiumController
 
-        val scene = Scene(hotelRoot, WIDTH, HEIGTH)
+        val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Bingo hotel"
         primaryStage.scene = scene
         primaryStage.show()
