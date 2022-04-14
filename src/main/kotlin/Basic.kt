@@ -74,8 +74,6 @@ class Basic(override var num_beds : Int) : Room (num_beds){
         return final_id
     }
 
-
-
     override fun detailed_view(): Scene {
         TODO("Not yet implemented")
     }
