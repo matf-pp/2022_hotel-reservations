@@ -1,7 +1,6 @@
-import javafx.scene.layout.Pane
+import Rooms.Room
 import java.time.LocalDate
 import java.time.Period
-import java.time.temporal.ChronoUnit
 import kotlin.math.abs
 
 class Reservation(var first_name : String,
@@ -41,7 +40,7 @@ class Reservation(var first_name : String,
     }
 
     companion object {
-        fun preCalculateFinalPrice(pre_dat_od : LocalDate, pre_dat_do : LocalDate ,pre_selected_room : Room, pre_offer : Offer) : Double{
+        fun preCalculateFinalPrice(pre_dat_od : LocalDate, pre_dat_do : LocalDate, pre_selected_room : Room, pre_offer : Offer) : Double{
             val duzina_trajanja = abs((pre_dat_od.compareTo(pre_dat_do)))
             return duzina_trajanja * (pre_offer.offer_price_per_day() + pre_selected_room.price_per_night)
         }

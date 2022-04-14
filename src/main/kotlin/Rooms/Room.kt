@@ -1,7 +1,12 @@
+package Rooms
+
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
 import javafx.scene.Scene
 import java.time.LocalDate
 
 abstract class Room() {
+    lateinit var root : Parent
     open var price_per_night : Double = 0.0
     var pictures : MutableList<String>? = null
     var availability : MutableMap<Int, MutableList<LocalDate>>? = null
@@ -11,7 +16,5 @@ abstract class Room() {
         this.num_beds = num_beds
     }
 
-
     abstract fun find_id(date1 : LocalDate, date2 : LocalDate) : Int
-    abstract fun detailed_view() : Scene
 }

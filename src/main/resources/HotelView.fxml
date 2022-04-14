@@ -4,10 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BasicFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HotelController">
     <children>
-        <Button fx:id="button" layoutX="126.0" layoutY="90" onAction="#handleButtonAction" text="Click Me!" />
+        <Button fx:id="btPremium" layoutX="195.0" layoutY="116.0" onAction="#btPremiumActionOpen" text="Premium" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Label fx:id="welcomeLabel" alignment="CENTER" layoutX="126.0" layoutY="41.0" prefHeight="16.0" prefWidth="78.0" textAlignment="CENTER" />
+      <Button fx:id="btBasic" layoutX="43.0" layoutY="116.0" onAction="#btBasicActionOpen" prefHeight="24.0" prefWidth="90.0" text="Basic" />
     </children>
 </AnchorPane>

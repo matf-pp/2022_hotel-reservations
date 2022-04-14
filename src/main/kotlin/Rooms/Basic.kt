@@ -1,9 +1,13 @@
+package Rooms
+
+import Rooms.Room
+import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import java.time.LocalDate
 import java.time.Period
 import kotlin.math.abs
 
-class Basic(override var num_beds : Int) : Room (num_beds){
+class Basic(override var num_beds : Int) : Room(num_beds){
     var list_id  = dodaj_id()
 
     private fun dodaj_id() : MutableList<Int>{
@@ -72,10 +76,6 @@ class Basic(override var num_beds : Int) : Room (num_beds){
             }
         }
         return final_id
-    }
-
-    override fun detailed_view(): Scene {
-        TODO("Not yet implemented")
     }
 
 }

@@ -1,3 +1,7 @@
+package Rooms
+
+import Rooms.Room
+import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import java.time.LocalDate
 import java.time.Period
@@ -22,6 +26,7 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
         4 -> 11150.0
         else -> 0.0
     }
+
 
     override fun find_id(date1: LocalDate, date2: LocalDate): Int {
         var length_of_stay: Int = abs(date2.compareTo(date1))
@@ -71,9 +76,5 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
             }
         }
         return final_id
-    }
-
-    override fun detailed_view(): Scene {
-        TODO("Not yet implemented")
     }
 }
