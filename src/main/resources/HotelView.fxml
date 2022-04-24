@@ -59,7 +59,7 @@
             <Insets left="5.0" right="5.0" />
          </VBox.margin>
       </VBox>
-      <HBox prefHeight="650.0" prefWidth="863.0" stylesheets="@css/below_buttons.css">
+      <HBox prefHeight="650.0" prefWidth="863.0" spacing="10.0" stylesheets="@css/below_buttons.css">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="550.0">
                <children>
@@ -72,7 +72,7 @@
                   <Separator orientation="VERTICAL" prefHeight="123.0" prefWidth="24.0" visible="false" />
                   <ImageView fitHeight="213.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-y: 1.3;">
                      <image>
-                        <Image url="@images/basic_2.jpg" />
+                        <Image url="@images/basic_3.jpg" />
                      </image>
                      <effect>
                         <Reflection fraction="0.36" topOffset="-3.0" />
@@ -89,6 +89,9 @@
                         <RadioButton fx:id="rbBasic3" mnemonicParsing="false" text="3P" />
                         <RadioButton fx:id="rbBasic4" mnemonicParsing="false" text="4P" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <padding>
@@ -98,7 +101,10 @@
                   <Insets right="5.0" />
                </VBox.margin>
             </VBox>
-            <Line endX="-99.99998474121094" endY="624.878662109375" startX="-100.0" strokeWidth="3.0" />
+            <Line endX="-99.99998474121094" endY="624.878662109375" startX="-100.0" strokeWidth="3.0">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Line>
             <VBox alignment="TOP_CENTER" layoutX="190.0" layoutY="10.0" prefHeight="650.0" prefWidth="550.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="12.0" prefWidth="21.0" visible="false" />
@@ -108,9 +114,9 @@
                      </font>
                   </Label>
                   <Separator orientation="VERTICAL" prefHeight="122.0" prefWidth="21.0" visible="false" />
-                  <ImageView fitHeight="167.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true" style="-fx-scale-y: 1.5; -fx-translate-y: 15;">
+                  <ImageView fitHeight="167.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" style="-fx-scale-y: 1.5; -fx-translate-y: 15;">
                      <image>
-                        <Image url="@images/superior_2.jpg" />
+                        <Image url="@images/superior_3.jpg" />
                      </image>
                      <effect>
                         <Reflection fraction="0.36" topOffset="-3.0" />
@@ -123,6 +129,9 @@
                         <RadioButton fx:id="rbSuperior3" mnemonicParsing="false" text="3P" />
                         <RadioButton fx:id="rbSuperior4" mnemonicParsing="false" text="4P" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <padding>
@@ -132,7 +141,10 @@
                   <Insets right="5.0" />
                </VBox.margin>
             </VBox>
-            <Line endX="-99.99998474121094" endY="624.878662109375" startX="-100.0" strokeWidth="3.0" />
+            <Line endX="-99.99998474121094" endY="624.878662109375" startX="-100.0" strokeWidth="3.0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Line>
             <VBox alignment="TOP_CENTER" layoutX="367.0" layoutY="10.0" prefHeight="650.0" prefWidth="550.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="12.0" prefWidth="21.0" visible="false" />
@@ -163,6 +175,9 @@
                      <children>
                         <RadioButton fx:id="rbPremium" mnemonicParsing="false" text="4P" />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="10.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
                <padding>

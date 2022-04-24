@@ -17,7 +17,7 @@ fun main(args: Array<String>)
 
 class MainWindow : Application()
 {
-    val WIDTH = 1063.0
+    val WIDTH = 1080.0
     val HEIGTH = 650.0
 
     override fun start(primaryStage: Stage)
@@ -47,26 +47,30 @@ class MainWindow : Application()
         val basicFXML = FXMLLoader(MainWindow::class.java.getResource("BasicView.fxml"))
         val superiorFXML = FXMLLoader(MainWindow::class.java.getResource("SuperiorView.fxml"))
         val premiumFXML = FXMLLoader(MainWindow::class.java.getResource("PremiumApartmentView.fxml"))
+        val reservationFXML = FXMLLoader(MainWindow::class.java.getResource("ReservationView.fxml"))
 
         // load controller instances and roots for each room
-
         val hotelRoot : Parent = hotelFXML.load()
         val basicRoot : Parent = basicFXML.load()
         val superiorRoot : Parent = superiorFXML.load()
         val premiumRoot : Parent = premiumFXML.load()
+        val reservationRoot : Parent = reservationFXML.load()
 
-        // init static head controller
+        // init static/global head controller
         HeadController.setterStage(primaryStage)
         HeadController.add_windows_to_map("hotel" , Scene(hotelRoot,  WIDTH, HEIGTH))
         HeadController.add_windows_to_map("basic" , Scene(basicRoot, WIDTH, HEIGTH))
         HeadController.add_windows_to_map("superior" , Scene(superiorRoot, WIDTH, HEIGTH))
         HeadController.add_windows_to_map("premium" , Scene(premiumRoot , WIDTH, HEIGTH))
+        HeadController.add_windows_to_map("reservation", Scene(reservationRoot, 600.0, 811.0))
 
         // get controllers
         var hotelController : HotelController = hotelFXML.getController()
         var basicController : BasicController = basicFXML.getController()
         var premiumController : PremiumApartmentController= premiumFXML.getController()
         var superiorController : SuperiorController = superiorFXML.getController()
+        var reservationController : ReservationController = reservationFXML.getController()
+
 
         // init hotel controller
         hotelController.addRoomAndMapIt("basic_two" , basic_room_two)
@@ -82,6 +86,9 @@ class MainWindow : Application()
         hotelController.basicController = basicController
         hotelController.superiorController = superiorController
         hotelController.premiumApartmentController = premiumController
+
+        // set reservation controller to be global (beacause the selected room will be chosen from room controllers)
+        HeadController.reservation = reservationController
 
         // init radio buttons
         hotelController.initRadioButton()

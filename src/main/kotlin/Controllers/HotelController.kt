@@ -87,43 +87,48 @@ class HotelController : HeadController(){
 
     @FXML
     private fun btBasicActionOpen(event: ActionEvent) {
-        // TODO set room property to 1, 2, od 3 bed acordingly
         if(rbBasic2.isSelected) {
             basicController.room = rooms_mapping["basic_two"] as Basic
-            HeadController.stage.scene = scene_map["basic"]
+            basicController.setNumLabel(2)
+            HeadController.setScene("basic")
         }
         if(rbBasic3.isSelected){
             basicController.room = rooms_mapping["basic_three"] as Basic
-            HeadController.stage.scene = scene_map["basic"]
+            basicController.setNumLabel(3)
+            HeadController.setScene("basic")
         }
         if(rbBasic4.isSelected){
             basicController.room = rooms_mapping["basic_four"] as Basic
-            HeadController.stage.scene = scene_map["basic"]
+            basicController.setNumLabel(4)
+            HeadController.setScene("basic")
         }
     }
     @FXML
     private fun btSuperiorActionOpen(event: ActionEvent) {
         if(rbSuperior2.isSelected) {
             superiorController.room = rooms_mapping["superior_two"] as Superior
-            HeadController.stage.scene = scene_map["superior"]
+            superiorController.setNumLabel(2)
+            HeadController.setScene("superior")
         }
         if(rbSuperior3.isSelected){
             superiorController.room = rooms_mapping["superior_three"] as Superior
-            HeadController.stage.scene = scene_map["superior"]
+            superiorController.setNumLabel(3)
+            HeadController.setScene("superior")
         }
         if(rbSuperior4.isSelected){
             superiorController.room = rooms_mapping["superior_four"] as Superior
-            HeadController.stage.scene = scene_map["superior"]
+            superiorController.setNumLabel(4)
+            HeadController.setScene("superior")
         }
     }
     @FXML
     private fun btPremiumActionOpen(event: ActionEvent){
         premiumApartmentController.room = rooms_mapping["premium_room"] as PremiumApartment
-        HeadController.stage.scene = scene_map["premium"]
+        HeadController.setScene("premium")
     }
     @FXML
     fun btHomeActionOpen(event: ActionEvent) {
-        HeadController.stage.scene = scene_map["hotel"]
+        HeadController.setScene("hotel")
     }
     @FXML
     fun btReservationsActionOpen(event: ActionEvent) {

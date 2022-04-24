@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="600.0" spacing="10.0" styleClass="reservation_bg" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReservationController">
+   <children>
+      <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="109.0" prefWidth="608.0" text="Reservation menu" textAlignment="CENTER" />
+      <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349285125732422">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Line>
+      <HBox prefHeight="4.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Room: ">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfRoom" editable="false" prefWidth="171.0">
+               <HBox.margin>
+                  <Insets left="67.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Num of beds:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfNumBeds" editable="false">
+               <HBox.margin>
+                  <Insets left="11.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Date from:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfDateFrom" alignment="CENTER" editable="false">
+               <HBox.margin>
+                  <Insets left="33.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Date to:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfDateTo" editable="false">
+               <HBox.margin>
+                  <Insets left="59.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Total nights:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfTotalNights" editable="false">
+               <HBox.margin>
+                  <Insets left="18.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Offer:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField editable="false">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="Total price:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfTotalPrice" editable="false">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349285125732422">
+         <VBox.margin>
+            <Insets left="20.0" top="15.0" />
+         </VBox.margin>
+      </Line>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="First name:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfFirstName">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="103.0" text="Last name:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfLastName">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Email:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfEmail">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" text="ID number:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfIdNumber">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0">
+         <children>
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Phone:">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="tfPhone">
+               <HBox.margin>
+                  <Insets left="29.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="0.0" prefWidth="600.0" />
+      <HBox prefHeight="0.0" prefWidth="600.0" />
+      <HBox prefHeight="0.0" prefWidth="600.0" />
+      <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349642753601074">
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </Line>
+      <Button id="rnd" fx:id="btConfirmReservation" mnemonicParsing="false" onAction="#btActionConfrimReservation" prefHeight="76.0" prefWidth="491.0" text="Confirm reservation">
+         <VBox.margin>
+            <Insets left="50.0" right="50.0" top="20.0" />
+         </VBox.margin>
+      </Button>
+      <Button id="red" fx:id="btExit" mnemonicParsing="false" onAction="#btActionExit" prefHeight="47.0" prefWidth="104.0" text="EXIT">
+         <VBox.margin>
+            <Insets bottom="20.0" left="470.0" top="30.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+   <stylesheets>
+      <URL value="@css/reservations.css" />
+      <URL value="@css/submit-button/stylesheet.css" />
+      <URL value="@css/reservation/background.css" />
+   </stylesheets>
+</VBox>

@@ -3,16 +3,68 @@ package Controllers
 import Rooms.PremiumApartment
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.Scene
+import javafx.scene.control.Button
+import javafx.scene.control.DatePicker
+import javafx.scene.control.Label
+import javafx.scene.control.ProgressIndicator
 
+class PremiumApartmentController {
 
-class PremiumApartmentController : HeadController(){
-    lateinit var room: PremiumApartment
+    lateinit var room : PremiumApartment
 
     @FXML
-    private fun btGoBackAction(event: ActionEvent) {
-        HeadController.stage.scene = HeadController.scene_map["hotel"]
+    private lateinit var btAbout: Button
+
+    @FXML
+    private lateinit var btCheckAvailability: Button
+
+    @FXML
+    private lateinit var btCheckout: Button
+
+    @FXML
+    private lateinit var btHome: Button
+
+    @FXML
+    private lateinit var btReservations: Button
+
+    @FXML
+    private lateinit var dtDateFrom: DatePicker
+
+    @FXML
+    private lateinit var dtDateTo: DatePicker
+
+    @FXML
+    private lateinit var lbNumOfPersons: Label
+
+    @FXML
+    private lateinit var lbSuccess: Label
+
+    @FXML
+    private lateinit var pbSuccess: ProgressIndicator
+
+    @FXML
+    fun btAboutActionOpen(event: ActionEvent) {
+
     }
 
-    // TODO ovde idu akcije, dugmici koji ce da se izvrsavaju nad room
+    @FXML
+    fun btActionCheckAvailability(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun btActionCheckout(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun btHomeActionOpen(event: ActionEvent) {
+        HeadController.setScene("hotel")
+    }
+
+    @FXML
+    fun btReservationsActionOpen(event: ActionEvent) {
+
+    }
+
 }

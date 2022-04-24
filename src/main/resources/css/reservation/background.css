@@ -1,0 +1,6 @@
+.reservation_bg{
+    -fx-background-image: url("./background_form.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 600 811;
+    -fx-background-position: center center;
+}
