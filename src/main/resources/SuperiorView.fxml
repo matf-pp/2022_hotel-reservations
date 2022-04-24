@@ -148,14 +148,19 @@
                </children>
             </HBox>
             <Line endX="100.0" startX="-180.0" startY="-0.41421353816986084" />
-            <Label id="flatbee-xlarge" prefHeight="55.0" prefWidth="163.0" text="Total price:">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label id="flatbee-xlarge" prefHeight="55.0" prefWidth="153.0" text="Total price:">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbPrice" alignment="CENTER" prefHeight="51.0" prefWidth="154.0" />
+               </children>
                <VBox.margin>
-                  <Insets right="100.0" />
+                  <Insets left="20.0" />
                </VBox.margin>
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
+            </HBox>
             <Button id="green" fx:id="btCheckout" disable="true" mnemonicParsing="false" onAction="#btActionCheckout" prefHeight="41.0" prefWidth="266.0" text="Go to checkout" />
          </children>
          <stylesheets>
