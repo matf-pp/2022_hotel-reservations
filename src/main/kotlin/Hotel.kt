@@ -8,21 +8,26 @@ class Hotel(
            val adresa : String
            )
 {
-    var sobe : MutableList<Room> = emptyList<Room>().toMutableList()
     var rezervacije : MutableMap<Room, MutableList<Reservation>> = emptyMap<Room, MutableList<Reservation>>().toMutableMap()
-
-    fun dodaj_sobu(room: Room) {
-        sobe.add(room)
-    }
 
     // Videcemo kako ce da se koristi
     fun dodaj_rezervaciju(room : Room, reservation: Reservation){
         rezervacije[room]?.add(reservation)
     }
 
-    // TODO
-    fun show_hotel() : Scene? {
-        return null
+    override fun toString(): String {
+        return "$naziv\nMesto: $mesto\nAdresa: $adresa\n"
     }
 
+    fun showReservations() : String {
+        var result = ""
+        rezervacije.forEach { (room, lista_rezervacija) ->
+            result += room.toString()
+            lista_rezervacija.forEach { res ->
+                result += res.toString()
+            }
+            result += "\n"
+        }
+        return result
+    }
 }

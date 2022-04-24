@@ -10,10 +10,72 @@ import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.stage.Stage
+import javafx.scene.control.RadioButton
+import javafx.scene.control.ToggleGroup
+
 
 class HotelController : HeadController(){
 
     var rooms_mapping : MutableMap<String, Room> = emptyMap<String, Room>().toMutableMap()
+
+    @FXML
+    private lateinit var btAbout: Button
+
+    @FXML
+    private lateinit var btBasic: Button
+
+    @FXML
+    private lateinit var btHome: Button
+
+    @FXML
+    private lateinit var btPremium: Button
+
+    @FXML
+    private lateinit var btReservations: Button
+
+    @FXML
+    private lateinit var btSuperior: Button
+
+    @FXML
+    private lateinit var rbBasic2: RadioButton
+
+    @FXML
+    private lateinit var rbBasic3: RadioButton
+
+    @FXML
+    private lateinit var rbBasic4: RadioButton
+
+    @FXML
+    private lateinit var rbSuperior2: RadioButton
+
+    @FXML
+    private lateinit var rbSuperior3: RadioButton
+
+    @FXML
+    private lateinit var rbSuperior4: RadioButton
+
+    @FXML
+    private lateinit var rbPremium : RadioButton
+
+    fun initRadioButton(){
+        val tgBasic = ToggleGroup()
+        val tgSuperior = ToggleGroup()
+        val tgPremium = ToggleGroup()
+
+        rbBasic2.isSelected = true
+        rbSuperior2.isSelected = true
+        rbPremium.isSelected = true
+
+        rbBasic2.toggleGroup = tgBasic
+        rbBasic3.toggleGroup = tgBasic
+        rbBasic4.toggleGroup = tgBasic
+
+        rbSuperior2.toggleGroup = tgSuperior
+        rbSuperior3.toggleGroup = tgSuperior
+        rbSuperior4.toggleGroup = tgSuperior
+
+        rbPremium.toggleGroup = tgPremium
+    }
 
     fun addRoomAndMapIt(id : String, room : Room){
         rooms_mapping[id] = room
@@ -24,24 +86,53 @@ class HotelController : HeadController(){
     lateinit var superiorController: SuperiorController
 
     @FXML
-    private lateinit var welcomeLabel : Label
-
-    @FXML
     private fun btBasicActionOpen(event: ActionEvent) {
         // TODO set room property to 1, 2, od 3 bed acordingly
-        basicController.room = rooms_mapping["basic_two"] as Basic
-        HeadController.stage.scene = scene_map["basic"]
+        if(rbBasic2.isSelected) {
+            basicController.room = rooms_mapping["basic_two"] as Basic
+            HeadController.stage.scene = scene_map["basic"]
+        }
+        if(rbBasic3.isSelected){
+            basicController.room = rooms_mapping["basic_three"] as Basic
+            HeadController.stage.scene = scene_map["basic"]
+        }
+        if(rbBasic4.isSelected){
+            basicController.room = rooms_mapping["basic_four"] as Basic
+            HeadController.stage.scene = scene_map["basic"]
+        }
     }
     @FXML
     private fun btSuperiorActionOpen(event: ActionEvent) {
-        // TODO set room property to 1, 2, od 3 bed acordingly
-        superiorController.room = rooms_mapping["superior_two"] as Superior
-        HeadController.stage.scene = scene_map["superior"]
+        if(rbSuperior2.isSelected) {
+            superiorController.room = rooms_mapping["superior_two"] as Superior
+            HeadController.stage.scene = scene_map["superior"]
+        }
+        if(rbSuperior3.isSelected){
+            superiorController.room = rooms_mapping["superior_three"] as Superior
+            HeadController.stage.scene = scene_map["superior"]
+        }
+        if(rbSuperior4.isSelected){
+            superiorController.room = rooms_mapping["superior_four"] as Superior
+            HeadController.stage.scene = scene_map["superior"]
+        }
     }
     @FXML
     private fun btPremiumActionOpen(event: ActionEvent){
-        // TODO set room property to 1, 2, od 3 bed acordingly
         premiumApartmentController.room = rooms_mapping["premium_room"] as PremiumApartment
         HeadController.stage.scene = scene_map["premium"]
     }
+    @FXML
+    fun btHomeActionOpen(event: ActionEvent) {
+        HeadController.stage.scene = scene_map["hotel"]
+    }
+    @FXML
+    fun btReservationsActionOpen(event: ActionEvent) {
+        // TODO
+    }
+
+    @FXML
+    fun btAboutActionOpen(event: ActionEvent) {
+        // TODO
+    }
+
 }

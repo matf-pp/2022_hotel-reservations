@@ -20,6 +20,7 @@ class BasicController : HeadController() {
 
     @FXML
     private fun btGoBackAction(event: ActionEvent) {
+        lbAleksa.text = "Aleksa je: "
         HeadController.stage.scene = HeadController.scene_map["hotel"]
     }
     // TODO ovde idu akcije, dugmici koji ce da se izvrsavaju nad room

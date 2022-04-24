@@ -25,10 +25,23 @@ class Reservation(var first_name : String,
        return length_of_stay * (offer.offer_price_per_day() + selected_room.price_per_night)
     }
 
+    override fun toString(): String {
+        var result = ""
+        result = "Ime: $first_name\n" +
+                "Prezime: $last_name\n" +
+                "Broj licne karte: $id_number\n" +
+                "Datum dolaska: $date_from\n" +
+                "Datum odlaska: $date_to\n" +
+                "Tip sobe: $selected_room\n" +
+                "Tip paketa: ${offer.toString()}\n" +
+                "Ukupna cena: $final_price\n"
+        return result
+    }
+
     fun reserve(){
         var dates_list = mutableListOf<LocalDate>()
 
-        for (i in 0..(length_of_stay-1)) {
+        for (i in 0 until length_of_stay) {
             val period = Period.of(0, 0, i)
             val date = date_from.plus(period)
             dates_list.add(date)
@@ -36,7 +49,6 @@ class Reservation(var first_name : String,
         for (date in dates_list) {
             this.selected_room.availability?.get(id_room)?.add(date)
         }
-
     }
 
     companion object {

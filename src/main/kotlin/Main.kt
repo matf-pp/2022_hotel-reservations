@@ -7,6 +7,7 @@ import javafx.application.Application.launch
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.control.ToggleGroup
 import javafx.stage.Stage
 
 fun main(args: Array<String>)
@@ -16,8 +17,8 @@ fun main(args: Array<String>)
 
 class MainWindow : Application()
 {
-    val WIDTH = 800.0
-    val HEIGTH = 800.0
+    val WIDTH = 1063.0
+    val HEIGTH = 650.0
 
     override fun start(primaryStage: Stage)
     {
@@ -56,10 +57,10 @@ class MainWindow : Application()
 
         // init static head controller
         HeadController.setterStage(primaryStage)
-        HeadController.add_windows_to_map("hotel" , Scene(hotelRoot, HEIGTH, WIDTH))
-        HeadController.add_windows_to_map("basic" , Scene(basicRoot, HEIGTH, WIDTH))
-        HeadController.add_windows_to_map("superior" , Scene(superiorRoot, HEIGTH, WIDTH))
-        HeadController.add_windows_to_map("premium" , Scene(premiumRoot , HEIGTH, WIDTH))
+        HeadController.add_windows_to_map("hotel" , Scene(hotelRoot,  WIDTH, HEIGTH))
+        HeadController.add_windows_to_map("basic" , Scene(basicRoot, WIDTH, HEIGTH))
+        HeadController.add_windows_to_map("superior" , Scene(superiorRoot, WIDTH, HEIGTH))
+        HeadController.add_windows_to_map("premium" , Scene(premiumRoot , WIDTH, HEIGTH))
 
         // get controllers
         var hotelController : HotelController = hotelFXML.getController()
@@ -81,6 +82,9 @@ class MainWindow : Application()
         hotelController.basicController = basicController
         hotelController.superiorController = superiorController
         hotelController.premiumApartmentController = premiumController
+
+        // init radio buttons
+        hotelController.initRadioButton()
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Bingo hotel"
