@@ -1,4 +1,6 @@
 import Controllers.*
+import ReservationThings.Food
+import ReservationThings.SpecialOffer
 import Rooms.Basic
 import Rooms.PremiumApartment
 import Rooms.Superior
@@ -7,7 +9,6 @@ import javafx.application.Application.launch
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.control.ToggleGroup
 import javafx.stage.Stage
 
 fun main(args: Array<String>)

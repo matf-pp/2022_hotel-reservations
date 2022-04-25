@@ -1,3 +1,5 @@
+package ReservationThings
+
 class Food(breakfast : Boolean, half_board : Boolean, full_board : Boolean) {
 
     var price_breakfast : Double = if(breakfast) 750.0 else 0.0

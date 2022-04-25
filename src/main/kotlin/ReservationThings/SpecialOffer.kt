@@ -1,3 +1,5 @@
+package ReservationThings
+
 class SpecialOffer(override var food : Food,
                    override var num_persons: Int,
                    override var parking : Boolean,

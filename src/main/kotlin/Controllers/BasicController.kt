@@ -1,14 +1,11 @@
 package Controllers
 
+import ReservationThings.Reservation
 import Rooms.Basic
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
-import javafx.scene.control.DatePicker
-import javafx.scene.control.Label
-import javafx.scene.control.ProgressIndicator
+import javafx.scene.control.*
 import java.time.LocalDate
-import java.time.LocalTime
 
 class BasicController {
 
@@ -49,6 +46,18 @@ class BasicController {
     @FXML
     private lateinit var pbSuccess: ProgressIndicator
 
+    @FXML
+    private lateinit var rbBreakfast: RadioButton
+
+    @FXML
+    private lateinit var rbDinner: RadioButton
+
+    @FXML
+    private lateinit var rbLunch: RadioButton
+
+    @FXML
+    private lateinit var tfPrice: TextField
+
     public fun setNumLabel(num : Int) {
         lbNumOfPersons.text = "$numberOfPersonsBegin $num"
     }
@@ -86,5 +95,18 @@ class BasicController {
     fun btReservationsActionOpen(event: ActionEvent) {
 
     }
+    @FXML
+    fun rbActionBreakfast(event: ActionEvent) {
 
+    }
+
+    @FXML
+    fun rbActionDinner(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun rbActionLunch(event: ActionEvent) {
+
+    }
 }

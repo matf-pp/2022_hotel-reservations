@@ -99,7 +99,11 @@
  * **********
 */
 .label{
-	 -fx-text-fill : black;
+	 -fx-text-fill : -white;
+ }
+ 
+ .label_black {
+ 	-fx-text-fill: -black;
  }
 
 /*
@@ -108,24 +112,28 @@
  * **********
  * 
  */
-.button_special {
-	-fx-background-color : green;
+.button {
+	-fx-background-color : -gray,-gray,-gray,-gray;
 }
-.button_special:focused {
-   -fx-color : darkGray;
-   -fx-background-color : darkGray;
-   -fx-focus-color : darkGray;
+.button:default{
+	-fx-background-color : -color;
 }
-.button_special:hovered {
-    	-fx-color: -red;
-    	-fx-border-style: solid;
-    	-fx-border-width: 3px;
-    	-fx-border-color: white;
-	-fx-inner-border : darkGray;
-	-fx-body-color : darkGray;
+.button:cancel{
+	-fx-background-color : -abort;
 }
 
-.button_special:armed {
+.button:focused {
+   -fx-color : -darkGray;
+   -fx-background-color : -darkGray;
+   -fx-focus-color : -darkGray;
+}
+.button:hovered {
+    	-fx-color: -darkGray;
+	-fx-inner-border : -darkGray;
+	-fx-body-color : -darkGray;
+}
+
+.button:armed {
     -fx-color: -white;
 }
 

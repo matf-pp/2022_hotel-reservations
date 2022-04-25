@@ -1,3 +1,5 @@
+package ReservationThings
+
 open class Offer(open var food : Food,
                  open var num_persons : Int,
                  open var parking : Boolean,

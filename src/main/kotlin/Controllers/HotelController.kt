@@ -124,6 +124,7 @@ class HotelController : HeadController(){
     @FXML
     private fun btPremiumActionOpen(event: ActionEvent){
         premiumApartmentController.room = rooms_mapping["premium_room"] as PremiumApartment
+        premiumApartmentController.setNumLabel(4)
         HeadController.setScene("premium")
     }
     @FXML

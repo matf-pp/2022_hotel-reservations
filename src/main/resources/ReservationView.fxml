@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="600.0" spacing="10.0" styleClass="reservation_bg" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReservationController">
    <children>
-      <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="109.0" prefWidth="608.0" text="Reservation menu" textAlignment="CENTER" />
+      <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="109.0" prefWidth="608.0" styleClass="label_black" text="ReservationThings.Reservation menu" textAlignment="CENTER" />
       <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349285125732422">
          <VBox.margin>
             <Insets left="20.0" />
@@ -19,7 +19,7 @@
       </Line>
       <HBox prefHeight="4.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Room: ">
+            <Label id="flatbee-large" styleClass="label_black" text="Room: ">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -36,7 +36,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Num of beds:">
+            <Label id="flatbee-large" styleClass="label_black" text="Num of beds:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -50,7 +50,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Date from:">
+            <Label id="flatbee-large" styleClass="label_black" text="Date from:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -64,7 +64,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Date to:">
+            <Label id="flatbee-large" styleClass="label_black" text="Date to:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -78,7 +78,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Total nights:">
+            <Label id="flatbee-large" styleClass="label_black" text="Total nights:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -92,7 +92,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Offer:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" styleClass="label_black" text="ReservationThings.Offer:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -106,7 +106,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="Total price:">
+            <Label id="flatbee-large" styleClass="label_black" text="Total price:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -125,7 +125,7 @@
       </Line>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="First name:">
+            <Label id="flatbee-large" styleClass="label_black" text="First name:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -142,7 +142,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="103.0" text="Last name:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="103.0" styleClass="label_black" text="Last name:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -156,7 +156,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Email:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" styleClass="label_black" text="Email:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -170,7 +170,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" text="ID number:">
+            <Label id="flatbee-large" styleClass="label_black" text="ID number:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -184,7 +184,7 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" text="Phone:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" styleClass="label_black" text="Phone:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -196,9 +196,6 @@
             </TextField>
          </children>
       </HBox>
-      <HBox prefHeight="0.0" prefWidth="600.0" />
-      <HBox prefHeight="0.0" prefWidth="600.0" />
-      <HBox prefHeight="0.0" prefWidth="600.0" />
       <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349642753601074">
          <VBox.margin>
             <Insets left="20.0" />
@@ -216,8 +213,8 @@
       </Button>
    </children>
    <stylesheets>
-      <URL value="@css/reservations.css" />
-      <URL value="@css/submit-button/stylesheet.css" />
-      <URL value="@css/reservation/background.css" />
+      <URL value="@css/theme.css" />
+      <URL value="@css/buttons.css" />
+      <URL value="@css/background.css" />
    </stylesheets>
 </VBox>

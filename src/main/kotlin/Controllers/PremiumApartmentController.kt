@@ -3,12 +3,11 @@ package Controllers
 import Rooms.PremiumApartment
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
-import javafx.scene.control.DatePicker
-import javafx.scene.control.Label
-import javafx.scene.control.ProgressIndicator
+import javafx.scene.control.*
 
 class PremiumApartmentController {
+
+    private val numberOfPersonsBegin : String = "Number of persons: "
 
     lateinit var room : PremiumApartment
 
@@ -43,6 +42,18 @@ class PremiumApartmentController {
     private lateinit var pbSuccess: ProgressIndicator
 
     @FXML
+    private lateinit var rbBreakfast: RadioButton
+
+    @FXML
+    private lateinit var rbDinner: RadioButton
+
+    @FXML
+    private lateinit var rbLunch: RadioButton
+
+    @FXML
+    private lateinit var tfPrice: TextField
+
+    @FXML
     fun btAboutActionOpen(event: ActionEvent) {
 
     }
@@ -66,5 +77,21 @@ class PremiumApartmentController {
     fun btReservationsActionOpen(event: ActionEvent) {
 
     }
+    @FXML
+    fun rbActionBreakfast(event: ActionEvent) {
 
+    }
+
+    @FXML
+    fun rbActionDinner(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun rbActionLunch(event: ActionEvent) {
+
+    }
+    public fun setNumLabel(num : Int) {
+        lbNumOfPersons.text = "$numberOfPersonsBegin $num"
+    }
 }

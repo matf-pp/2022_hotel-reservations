@@ -16,7 +16,7 @@
 
 <HBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HotelController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="171.0" style="-fx-background-color: -white,-gray,gray;" styleClass="root" stylesheets="@css/menu_buttons.css">
+      <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="171.0" style="-fx-background-color: -white,-gray,gray;" styleClass="root" stylesheets="@css/theme.css">
          <children>
             <Button fx:id="btHome" mnemonicParsing="false" onAction="#btHomeActionOpen" prefHeight="48.0" prefWidth="155.0" text="Home" textAlignment="CENTER">
                <VBox.margin>
@@ -59,12 +59,12 @@
             <Insets left="5.0" right="5.0" />
          </VBox.margin>
       </VBox>
-      <HBox prefHeight="650.0" prefWidth="863.0" spacing="10.0" stylesheets="@css/below_buttons.css">
+      <HBox prefHeight="650.0" prefWidth="863.0" spacing="10.0" stylesheets="@css/hotel_below_buttons.css">
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="550.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="55.0" prefWidth="15.0" />
-                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI;" text="Basic room" textAlignment="CENTER" textFill="#eee9e9">
+                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI; -fx-border-radius: 10; -fx-background-radius: 15;" text="Basic room" textAlignment="CENTER" textFill="#eee9e9">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -75,7 +75,7 @@
                         <Image url="@images/basic_3.jpg" />
                      </image>
                      <effect>
-                        <Reflection fraction="0.36" topOffset="-3.0" />
+                        <Reflection fraction="0.36" topOffset="-3.0" topOpacity="0.17" />
                      </effect></ImageView>
                   <Separator orientation="VERTICAL" prefHeight="356.0" prefWidth="21.0" visible="false" />
                   <Button fx:id="btBasic" alignment="CENTER" onAction="#btBasicActionOpen" prefHeight="34.0" prefWidth="284.0" styleClass="below_buttons" text="Check availability" textAlignment="CENTER">
@@ -108,7 +108,7 @@
             <VBox alignment="TOP_CENTER" layoutX="190.0" layoutY="10.0" prefHeight="650.0" prefWidth="550.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="12.0" prefWidth="21.0" visible="false" />
-                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI;" text="Superior room" textFill="#eee9e9">
+                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI; -fx-border-radius: 10; -fx-background-radius: 15;" text="Superior room" textFill="#eee9e9">
                      <font>
                         <Font size="32.0" />
                      </font>
@@ -148,7 +148,7 @@
             <VBox alignment="TOP_CENTER" layoutX="367.0" layoutY="10.0" prefHeight="650.0" prefWidth="550.0">
                <children>
                   <Separator orientation="VERTICAL" prefHeight="12.0" prefWidth="21.0" visible="false" />
-                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI;" text="Premium room" textFill="#eee9e9">
+                  <Label alignment="CENTER" prefHeight="52.0" prefWidth="284.0" style="-fx-background-color: gray; -fx-border-style: solid; -fx-border-width: 3px; -fx-font-family: Segoe UI; -fx-border-radius: 10; -fx-background-radius: 15;" text="Premium room" textFill="#eee9e9">
                      <font>
                         <Font size="32.0" />
                      </font>
