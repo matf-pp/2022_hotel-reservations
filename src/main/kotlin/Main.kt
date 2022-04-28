@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import java.time.LocalDate
 
 fun main(args: Array<String>)
 {
@@ -20,13 +21,14 @@ class MainWindow : Application()
 {
     val WIDTH = 1080.0
     val HEIGTH = 650.0
+    var local_date : LocalDate = LocalDate.of(2020, 5, 4)
 
     override fun start(primaryStage: Stage)
     {
         // initialization
         var basic_room_two = Basic(2)
-        var basic_room_three : Basic = Basic(3)
-        var basic_room_four : Basic = Basic(4)
+        var basic_room_three  = Basic(3)
+        var basic_room_four  = Basic(4)
 
         var superior_room_two = Superior(2)
         var superior_room_three = Superior(3)

@@ -74,7 +74,8 @@ class BasicController {
             val dateTo: LocalDate = dtDateTo.value
 
             if(room.find_id(dateFrom, dateTo) != -1){
-                lbPrice.text = Reservation.preCalculateFinalPriceWithoutOffer(dateFrom, dateTo, room).toString()
+                //lbPrice.text = Reservation.preCalculateFinalPriceWithoutOffer(dateFrom, dateTo, room).toString()
+
             }
         }
     }

@@ -8,14 +8,28 @@ import java.time.Period
 import kotlin.math.abs
 
 class Basic(override var num_beds : Int) : Room(num_beds){
-    var list_id  = dodaj_id()
+    var list_id  = dodaj_id(num_beds)
 
-    private fun dodaj_id() : MutableList<Int>{
+    private fun dodaj_id(num_beds: Int) : MutableList<Int>{
         var lista_id = mutableListOf<Int>()
         var empty_list = mutableListOf<LocalDate>()
-        for (i in 101..145){
-            lista_id.add(i)
-            super.availability?.put(i, empty_list)
+        if(num_beds == 2){
+            for (i in 101..115) {
+                lista_id.add(i)
+                super.availability?.put(i, empty_list)
+            }
+        }
+        else if(num_beds == 3) {
+            for (i in 116..130) {
+                lista_id.add(i)
+                super.availability?.put(i, empty_list)
+            }
+        }
+        else {
+            for (i in 131..145) {
+                lista_id.add(i)
+                super.availability?.put(i, empty_list)
+            }
         }
         return lista_id
     }
@@ -39,43 +53,16 @@ class Basic(override var num_beds : Int) : Room(num_beds){
             val date = date1.plus(period)
             dates_list.add(date)
         }
-
-        if (num_beds == 2) {
-            for (j in 101..115) {
-                for (date in dates_list) {
-                    if (super.availability?.get(j)?.contains(date) == false)
-                        counter++
-                }
-                if (counter == length_of_stay) {
-                    final_id = j
-                    break
-                }
+        for (j in list_id) {
+            for (date in dates_list) {
+                if (super.availability?.get(j)?.contains(date) == false)
+                    counter++
             }
-        } else if (num_beds == 3) {
-            for (j in 116..130) {
-                for (date in dates_list) {
-                    if (super.availability?.get(j)?.contains(date) == false)
-                        counter++
-                }
-                if (counter == length_of_stay) {
-                    final_id = j
-                    break
-                }
-            }
-
-        } else {
-            for (j in 131..145) {
-                for (date in dates_list) {
-                    if (super.availability?.get(j)?.contains(date) == false)
-                        counter++
-                }
-                if (counter == length_of_stay) {
-                    final_id = j
-                    break
-                }
+            if (counter == length_of_stay) {
+                final_id = j
+                break
             }
         }
         return final_id
     }
-
 }

@@ -23,7 +23,7 @@ class PremiumApartment() : Room() {
 
     override var price_per_night : Double = 14750.0
 
-    override fun find_id(date1: LocalDate, date2: LocalDate): Int {
+    override fun find_id(date1 : LocalDate, date2 : LocalDate) : Int {
         var length_of_stay: Int = abs(date2.compareTo(date1))
         var counter: Int = 0
         var final_id: Int = -1
@@ -34,16 +34,16 @@ class PremiumApartment() : Room() {
             val date = date1.plus(period)
             dates_list.add(date)
         }
-            for (j in 301..310) {
-                for (date in dates_list) {
-                    if (super.availability?.get(j)?.contains(date) == false)
-                        counter++
-                }
-                if (counter == length_of_stay) {
-                    final_id = j
-                    break
-                }
+        for (j in list_id) {
+            for (date in dates_list) {
+                if (super.availability?.get(j)?.contains(date) == false)
+                    counter++
             }
+            if (counter == length_of_stay) {
+                final_id = j
+                break
+            }
+        }
         return final_id
     }
 
