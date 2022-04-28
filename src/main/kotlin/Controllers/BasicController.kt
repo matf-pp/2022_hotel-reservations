@@ -6,8 +6,19 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 
 class BasicController {
+
+    fun set_toggle_food() {
+        var tgFood = ToggleGroup()
+
+        rbBreakfast.isSelected = true
+
+        rbFullBoard.toggleGroup = tgFood
+        rbHalfBoard.toggleGroup = tgFood
+        rbBreakfast.toggleGroup = tgFood
+    }
 
     private val numberOfPersonsBegin : String = "Number of persons: "
 
@@ -50,10 +61,10 @@ class BasicController {
     private lateinit var rbBreakfast: RadioButton
 
     @FXML
-    private lateinit var rbDinner: RadioButton
+    private lateinit var rbFullBoard: RadioButton
 
     @FXML
-    private lateinit var rbLunch: RadioButton
+    private lateinit var rbHalfBoard: RadioButton
 
     @FXML
     private lateinit var tfPrice: TextField
@@ -66,16 +77,54 @@ class BasicController {
     fun btAboutActionOpen(event: ActionEvent) {
 
     }
+
+    private fun unlock(){
+        rbBreakfast.isDisable = false
+        rbHalfBoard.isDisable = false
+        rbFullBoard.isDisable = false
+        lbPrice.isDisable = false
+        tfPrice.isDisable = false
+        btCheckout.isDisable = false
+    }
+    private fun lock(){
+        tfPrice.text = ""
+
+        rbBreakfast.isDisable = true
+        rbHalfBoard.isDisable = true
+        rbFullBoard.isDisable = true
+        lbPrice.isDisable = true
+        tfPrice.isDisable = true
+        btCheckout.isDisable = true 
+    }
+
+    private fun calculate_final_price_room_food() : Double{
+        var cena : Double = 0.0
+        val duzina_ostajanja = ChronoUnit.DAYS.between(dtDateFrom.value, dtDateTo.value)
+        if (rbBreakfast.isSelected){
+            cena += HeadController.foodBreakfast.get_total_price() * room.num_beds * duzina_ostajanja
+        }
+        else  if (rbHalfBoard.isSelected){
+            cena += HeadController.foodHalf.get_total_price() * room.num_beds * duzina_ostajanja
+        }
+        else  if (rbFullBoard.isSelected){
+            cena += HeadController.foodFull.get_total_price() * room.num_beds * duzina_ostajanja
+        }
+        return cena + room.price_per_night * duzina_ostajanja
+    }
+
     @FXML
     fun btActionCheckAvailability(event: ActionEvent) {
-        // TODO nastaviti kada Anja ispravi
         if(dtDateFrom.value != null && dtDateTo.value != null) {
             val dateFrom: LocalDate = dtDateFrom.value
             val dateTo: LocalDate = dtDateTo.value
 
-            if(room.find_id(dateFrom, dateTo) != -1){
-                //lbPrice.text = Reservation.preCalculateFinalPriceWithoutOffer(dateFrom, dateTo, room).toString()
-
+            val id = room.find_id(dateFrom, dateTo)
+            if(id != -1){
+                unlock()
+                tfPrice.text = calculate_final_price_room_food().toString()
+            }
+            else {
+                lock()
             }
         }
     }
@@ -91,23 +140,27 @@ class BasicController {
         lbNumOfPersons.text = ""
         HeadController.setScene("hotel")
     }
-
     @FXML
     fun btReservationsActionOpen(event: ActionEvent) {
 
     }
     @FXML
     fun rbActionBreakfast(event: ActionEvent) {
-
+        if (rbBreakfast.isSelected){
+            tfPrice.text = calculate_final_price_room_food().toString()
+        }
     }
-
     @FXML
-    fun rbActionDinner(event: ActionEvent) {
-
+    fun rbActionFullBoard(event: ActionEvent) {
+        if (rbFullBoard.isSelected){
+            tfPrice.text = calculate_final_price_room_food().toString()
+        }
     }
-
     @FXML
-    fun rbActionLunch(event: ActionEvent) {
-
+    fun rbActionHalfBoard(event: ActionEvent) {
+        if (rbHalfBoard.isSelected){
+            tfPrice.text = calculate_final_price_room_food().toString()
+        }
     }
+
 }

@@ -1,8 +1,12 @@
+package Controllers
+
 import Controllers.HeadController
 import Rooms.Room
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.ChoiceBox
+import javafx.scene.control.RadioButton
 import javafx.scene.control.TextField
 
 class ReservationController {
@@ -49,6 +53,21 @@ class ReservationController {
     private lateinit var tfTotalPrice: TextField
 
     @FXML
+    private lateinit var cbMassage: ChoiceBox<Any>
+
+    @FXML
+    private lateinit var rbMassage: RadioButton
+
+    @FXML
+    private lateinit var rbParking: RadioButton
+
+    @FXML
+    private lateinit var rbParty: RadioButton
+
+    @FXML
+    private lateinit var rbWellness: RadioButton
+
+    @FXML
     fun btActionConfrimReservation(event: ActionEvent) {
 
     }
@@ -57,5 +76,23 @@ class ReservationController {
     fun btActionExit(event: ActionEvent) {
         HeadController.stage.scene = HeadController.scene_map["hotel"]
     }
+    @FXML
+    fun rbActionMassage(event: ActionEvent) {
 
+    }
+
+    @FXML
+    fun rbActionParking(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun rbActionParty(event: ActionEvent) {
+
+    }
+
+    @FXML
+    fun rbActionWellness(event: ActionEvent) {
+
+    }
 }

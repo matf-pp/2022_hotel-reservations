@@ -1,6 +1,7 @@
 package Controllers
 
-import ReservationController
+import Controllers.ReservationController
+import ReservationThings.Food
 import Rooms.Room
 import javafx.scene.Parent
 import javafx.scene.Scene
@@ -11,6 +12,10 @@ open class HeadController(){
     companion object {
         lateinit var stage : Stage
         var scene_map : MutableMap<String, Scene> = emptyMap<String, Scene>().toMutableMap()
+
+        lateinit var foodBreakfast : Food
+        lateinit var foodHalf : Food
+        lateinit var foodFull : Food
 
         lateinit var reservation : ReservationController
 

@@ -3,6 +3,8 @@ package ReservationThings
 import Rooms.Room
 import java.time.LocalDate
 import java.time.Period
+import java.time.chrono.ChronoLocalDate
+import java.time.temporal.ChronoUnit
 import kotlin.math.abs
 
 class Reservation(var first_name : String,
@@ -59,7 +61,8 @@ class Reservation(var first_name : String,
             return duzina_trajanja * (pre_offer.offer_price_per_day() + pre_selected_room.price_per_night)
         }
         fun preCalculateFinalPriceWithoutOffer(pre_dat_od : LocalDate, pre_dat_do : LocalDate, pre_selected_room : Room) : Double{
-            val duzina_trajanja = abs((pre_dat_od.compareTo(pre_dat_do)))
+            val duzina_trajanja = ChronoUnit.DAYS.between(pre_dat_od, pre_dat_do)
+            println(duzina_trajanja)
             return duzina_trajanja * (pre_selected_room.price_per_night)
         }
     }

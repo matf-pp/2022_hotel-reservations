@@ -45,6 +45,15 @@ class MainWindow : Application()
         var birthday_package = SpecialOffer(Food(false,false,true), 2,true,true,true,true,
             0.0,0.0,0.6,0.7)
 
+        // init food and set to head controller
+        val foodBreakfast = Food(true, false, false)
+        val foodHalf = Food(false, true, false)
+        val foodFull = Food(false, false, true)
+
+        HeadController.foodBreakfast = foodBreakfast
+        HeadController.foodHalf = foodHalf
+        HeadController.foodFull = foodFull
+
         // fxml loaders
         val hotelFXML = FXMLLoader(MainWindow::class.java.getResource("HotelView.fxml"))
         val basicFXML = FXMLLoader(MainWindow::class.java.getResource("BasicView.fxml"))
@@ -95,6 +104,11 @@ class MainWindow : Application()
 
         // init radio buttons
         hotelController.initRadioButton()
+
+        // init radio buttons for food controllers
+        basicController.set_toggle_food()
+        // todo superior
+        // todo preimum
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Bingo hotel"

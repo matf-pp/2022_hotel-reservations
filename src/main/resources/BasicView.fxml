@@ -166,7 +166,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbLunch" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionLunch" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Lunch" textAlignment="CENTER">
+            <RadioButton fx:id="rbHalfBoard" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionHalfBoard" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Half board" textAlignment="CENTER">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -177,7 +177,7 @@
                   <Insets right="30.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton fx:id="rbDinner" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionDinner" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Dinner" textAlignment="CENTER">
+            <RadioButton fx:id="rbFullBoard" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionFullBoard" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Full-board" textAlignment="CENTER">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -190,7 +190,7 @@
             </RadioButton>
             <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="311.0">
                <children>
-                  <Label id="flatbee-xlarge" disable="true" prefHeight="55.0" prefWidth="163.0" styleClass="label_black" text="Total price:">
+                  <Label id="flatbee-xlarge" fx:id="lbPrice" disable="true" prefHeight="55.0" prefWidth="163.0" styleClass="label_black" text="Total price:">
                      <font>
                         <Font size="25.0" />
                      </font>
