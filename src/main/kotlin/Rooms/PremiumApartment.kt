@@ -1,8 +1,5 @@
 package Rooms
 
-import Rooms.Room
-import javafx.fxml.FXMLLoader
-import javafx.scene.Scene
 import java.time.LocalDate
 import java.time.Period
 import kotlin.math.abs
@@ -12,11 +9,11 @@ class PremiumApartment() : Room() {
     var list_id  = dodaj_id()
 
     private fun dodaj_id() : MutableList<Int>{
-        var lista_id = mutableListOf<Int>()
-        var empty_list = mutableListOf<LocalDate>()
+        val lista_id = mutableListOf<Int>()
         for (i in 301..310){
             lista_id.add(i)
-            super.availability?.put(i, empty_list)
+            val empty_list = mutableListOf<LocalDate>()
+            super.availability[i] = empty_list
         }
         return lista_id
     }
@@ -29,23 +26,27 @@ class PremiumApartment() : Room() {
         var final_id: Int = -1
         var dates_list = mutableListOf<LocalDate>()
 
-        for (i in 0..(length_of_stay-1)) {
+        for (i in 0..length_of_stay-1) {
             val period = Period.of(0, 0, i)
             val date = date1.plus(period)
             dates_list.add(date)
         }
         for (j in list_id) {
+            counter = 0
             for (date in dates_list) {
-                if (super.availability?.get(j)?.contains(date) == false)
+                if (super.availability[j]?.contains(date) == false)
                     counter++
             }
-            if (counter == length_of_stay) {
+            if (counter == length_of_stay ) {
                 final_id = j
                 break
             }
         }
         super.id = final_id
         return final_id
+    }
+    override fun add_date(id : Int, date : LocalDate){
+        availability[id]?.add(date)
     }
 
 }

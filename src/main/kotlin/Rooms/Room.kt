@@ -16,5 +16,6 @@ abstract class Room() {
         this.num_beds = num_beds
     }
 
+    abstract fun add_date(id : Int, date : LocalDate)
     abstract fun find_id(date1 : LocalDate, date2 : LocalDate) : Int
 }

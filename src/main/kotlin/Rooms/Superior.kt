@@ -1,8 +1,5 @@
 package Rooms
 
-import Rooms.Room
-import javafx.fxml.FXMLLoader
-import javafx.scene.Scene
 import java.time.LocalDate
 import java.time.Period
 import kotlin.math.abs
@@ -11,25 +8,26 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
     var list_id  = dodaj_id(num_beds)
 
     private fun dodaj_id(num_beds: Int) : MutableList<Int>{
-        var lista_id = mutableListOf<Int>()
-        var empty_list = mutableListOf<LocalDate>()
+        val lista_id = mutableListOf<Int>()
         if(num_beds == 2){
             for (i in 201..212) {
                 lista_id.add(i)
-                super.availability?.put(i, empty_list)
+                val empty_list = mutableListOf<LocalDate>()
+                super.availability[i] = empty_list
             }
         }
-
         else if(num_beds == 3) {
             for (i in 213..224) {
                 lista_id.add(i)
-                super.availability?.put(i, empty_list)
+                val empty_list = mutableListOf<LocalDate>()
+                super.availability[i] = empty_list
             }
         }
         else {
             for (i in 225..236) {
                 lista_id.add(i)
-                super.availability?.put(i, empty_list)
+                val empty_list = mutableListOf<LocalDate>()
+                super.availability[i] = empty_list
             }
         }
         return lista_id
@@ -43,7 +41,6 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
         else -> 0.0
     }
 
-
     override fun find_id(date1 : LocalDate, date2 : LocalDate) : Int {
         var length_of_stay: Int = abs(date2.compareTo(date1))
         var counter: Int = 0
@@ -56,8 +53,9 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
             dates_list.add(date)
         }
         for (j in list_id) {
+            counter = 0
             for (date in dates_list) {
-                if (super.availability?.get(j)?.contains(date) == false)
+                if (super.availability[j]?.contains(date) == false)
                     counter++
             }
             if (counter == length_of_stay) {
@@ -67,5 +65,9 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
         }
         super.id = final_id
         return final_id
+    }
+
+    override fun add_date(id : Int, date : LocalDate){
+        availability[id]?.add(date)
     }
 }

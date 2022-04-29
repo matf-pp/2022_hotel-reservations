@@ -1,7 +1,9 @@
 package Controllers
 
 import Controllers.HeadController
+import ReservationThings.Food
 import ReservationThings.Offer
+import ReservationThings.Reservation
 import Rooms.Room
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
@@ -17,11 +19,11 @@ import java.time.temporal.ChronoUnit
 
 class ReservationController {
 
-    private lateinit var offer : ReservationThings.Offer
     lateinit var  selectedRoom : Room
 
     lateinit var dateFrom : LocalDate
     lateinit var dateTo : LocalDate
+    lateinit var food1: Food
 
     fun fill_fields(date1 : LocalDate, date2 : LocalDate, food : ReservationThings.Food, price_room_food : String) {
         var type: String = if (selectedRoom is Rooms.Basic) "Basic"
@@ -38,6 +40,7 @@ class ReservationController {
         var numMassage : Int = if(rbMassage.isSelected) cbMassage.value as Int else 0
         dateFrom = date1
         dateTo = date2
+        food1 = food
     }
 
     private fun initialize(){
@@ -220,7 +223,13 @@ class ReservationController {
 
     @FXML
     fun btActionConfrimReservation(event: ActionEvent) {
-
+        val name = tfFirstName.text
+        val last_name = tfLastName.text
+        val id = tfIdNumber.text
+        val offer = Offer(food1, selectedRoom.num_beds, rbParking.isSelected,
+            rbWellness.isSelected, 0, rbParty.isSelected)
+        val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer)
+        HeadController.setScene("hotel")
     }
 
     @FXML
@@ -275,7 +284,14 @@ class ReservationController {
 
     @FXML
     fun cbActionMassage(event: MouseEvent) {
-
+        var price_room_food : Double = tfTotalPrice.text.toDouble()
+        var length_of_stay = ChronoUnit.DAYS.between(dateFrom, dateTo)
+        if(cbMassage.value != null){
+            tfTotalPrice.text = (price_room_food + Offer.price_massage1 * cbMassage.value as Int).toString()
+        }
+        else{
+            //tfTotalPrice.text = (price_room_food - Offer.price_wellness * selectedRoom.num_beds * length_of_stay).toString()
+        }
     }
 
     @FXML

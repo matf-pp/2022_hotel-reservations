@@ -10,7 +10,7 @@ class Proba {
 fun main() {
     var duzina : Int = 0
     var duzina2 : Long = 0
-    var dat1 : LocalDate = LocalDate.of(2022,4,5)
+    var dat1 : LocalDate = LocalDate.of(2022,4,6)
     var dat2 : LocalDate = LocalDate.of(2022,4,21)
     duzina = dat1.compareTo(dat2)
     duzina2 = ChronoUnit.DAYS.between(dat1, dat2)
@@ -31,7 +31,7 @@ fun main() {
 
     //var list : MutableList<Int>? = mapa.get(1)
 
-    for (i in 0..2) {
+    for (i in 0..3) {
         val period = Period.of(0, 0, i)
         val date = dat1.plus(period)
         lista.add(date)

@@ -16,6 +16,7 @@ class BasicController {
     lateinit var datTo : LocalDate
 
     lateinit var room : Basic
+    var final_id = -1
 
     @FXML
     private lateinit var btAbout: Button
@@ -80,8 +81,8 @@ class BasicController {
         datFrom = dtDateFrom.value
 
 
-        val id = room.find_id(dateFrom, dateTo)
-        if(id != -1){
+        final_id = room.find_id(dateFrom, dateTo)
+        if(final_id != -1){
             unlock()
             tfSelectedDateFrom.text = dateFrom.toString()
             tfSelectedDateTo.text = dateTo.toString()

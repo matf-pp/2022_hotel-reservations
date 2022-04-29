@@ -18,7 +18,7 @@ class Reservation(var first_name : String,
                   )
 {
     val final_price : Double
-    private var length_of_stay : Int = abs((this.date_from.compareTo(date_to)))
+    private var length_of_stay : Int = ChronoUnit.DAYS.between(date_from, date_to).toInt()
 
     init {
         final_price = calculateFinalPrice()
@@ -44,16 +44,18 @@ class Reservation(var first_name : String,
     }
 
     fun reserve(){
-        var dates_list = mutableListOf<LocalDate>()
+        val dates_list = mutableListOf<LocalDate>()
 
-        for (i in 0 until length_of_stay) {
+        for (i in 0 .. length_of_stay-1) {
             val period = Period.of(0, 0, i)
             val date = date_from.plus(period)
             dates_list.add(date)
         }
+
         for (date in dates_list) {
-            this.selected_room.availability?.get(id_room)?.add(date)
+            this.selected_room.availability[id_room]?.add(date)
         }
+        println(selected_room.availability)
     }
 
     companion object {
