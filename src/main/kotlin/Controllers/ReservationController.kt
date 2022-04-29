@@ -7,10 +7,11 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
-import javafx.scene.control.ChoiceBox
-import javafx.scene.control.RadioButton
-import javafx.scene.control.TextField
+import javafx.scene.control.*
+import javafx.scene.input.InputMethodEvent
+import javafx.scene.input.KeyEvent
+import javafx.scene.input.MouseEvent
+import javafx.scene.paint.Color
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -54,9 +55,99 @@ class ReservationController {
     private fun lock_cb(){
         cbMassage.isDisable = true
     }
+
+    private fun setLabelTextAndColor(label: Label , text : String = "",color : String = "black"){
+        if (color.equals("red")){
+            label.textFill = Color.color(1.0, 0.0, 0.0)
+            label.text = text
+        }
+        else if (color.equals("green")){
+            label.textFill = Color.color(0.0, 1.0, 0.0)
+            label.text = text
+        }
+        else if (color.equals("yellow")){
+            label.textFill = Color.color(0.9, 1.0, 0.2)
+            label.text = text
+        }
+        else if(color.equals("black")){
+            label.textFill = Color.color(0.0, 0.0, 0.0)
+            label.text = text
+        }
+        else {
+            println("Available colors are red, green, yellow and by default black")
+        }
+    }
+
+    private fun check_user_input(){
+        var checkFirstName = false
+        var checkLastName = false
+        var checkID = false
+        var checkEmail = false
+        var checkPhone = false
+
+        // FIRST NAME
+        if(tfFirstName.text.equals("")){
+            setLabelTextAndColor(lbCheckFirstName, "EMPTY", "yellow")
+        }
+        else{
+            checkFirstName = true
+            setLabelTextAndColor(lbCheckFirstName, "OK", "green")
+        }
+
+        // LAST NAME
+        if(tfLastName.text.equals("")){
+            setLabelTextAndColor(lbCheckLastName, "EMPTY", "yellow")
+        }
+        else{
+            checkLastName = true
+            setLabelTextAndColor(lbCheckLastName, "OK", "green")
+        }
+
+        // EMAIL
+        val patternEmail = Regex("^\\w+@([a-zA-Z_]+\\.)*\\w+\\.\\w{2,3}$")
+        if(tfEmail.text.equals("")){
+            setLabelTextAndColor(lbCheckEmail, "EMPTY", "yellow")
+        }
+        else if(!patternEmail.containsMatchIn(tfEmail.text)){
+            setLabelTextAndColor(lbCheckEmail, "NOT VALID", "red")
+        }
+        else{
+            checkEmail = true
+            setLabelTextAndColor(lbCheckEmail, "OK", "green")
+        }
+
+        // PHONE
+        val patternPhone = Regex("^[0-9]{6,}$")
+        if(tfPhone.text.equals("")){
+            setLabelTextAndColor(lbCheckPhone, "EMPTY", "yellow")
+        }
+        else if(!patternPhone.containsMatchIn(tfPhone.text)){
+            setLabelTextAndColor(lbCheckPhone, "NOT VALID", "red")
+        }
+        else{
+            checkPhone = true
+            setLabelTextAndColor(lbCheckPhone, "OK", "green")
+        }
+
+        // ID NUMBER
+        val patternID = Regex("^\\d{8}$")
+        if(tfIdNumber.text.equals("")){
+            setLabelTextAndColor(lbCheckIDNumber, "EMPTY", "yellow")
+        }
+        else if(!patternID.containsMatchIn(tfIdNumber.text)){
+            setLabelTextAndColor(lbCheckIDNumber, "NOT VALID", "red")
+        }
+        else{
+            checkID = true
+            setLabelTextAndColor(lbCheckIDNumber, "OK", "green")
+        }
+
+        // RESERVE CHECK
+        btConfirmReservation.isDisable = !(checkFirstName && checkLastName && checkEmail && checkID && checkPhone)
+
+    }
     //indikator za cbMassage, zbog inicijalizovanja - da ne dodaje svaki put nove opcije u cb
     private var indikator = 0
-
 
     @FXML
     private lateinit var btConfirmReservation: Button
@@ -113,6 +204,21 @@ class ReservationController {
     private lateinit var rbWellness: RadioButton
 
     @FXML
+    private lateinit var lbCheckEmail: Label
+
+    @FXML
+    private lateinit var lbCheckFirstName: Label
+
+    @FXML
+    private lateinit var lbCheckIDNumber: Label
+
+    @FXML
+    private lateinit var lbCheckLastName: Label
+
+    @FXML
+    private lateinit var lbCheckPhone: Label
+
+    @FXML
     fun btActionConfrimReservation(event: ActionEvent) {
 
     }
@@ -165,5 +271,35 @@ class ReservationController {
         else{
             tfTotalPrice.text = (price_room_food - Offer.price_wellness * selectedRoom.num_beds * length_of_stay).toString()
         }
+    }
+
+    @FXML
+    fun cbActionMassage(event: MouseEvent) {
+
+    }
+
+    @FXML
+    fun tfActionEmail(event: KeyEvent) {
+        check_user_input()
+    }
+
+    @FXML
+    fun tfActionFirstName(event: KeyEvent) {
+        check_user_input()
+    }
+
+    @FXML
+    fun tfActionIDNumber(event: KeyEvent) {
+        check_user_input()
+    }
+
+    @FXML
+    fun tfActionLastName(event: KeyEvent) {
+        check_user_input()
+    }
+
+    @FXML
+    fun tfActionPhone(event: KeyEvent) {
+        check_user_input()
     }
 }

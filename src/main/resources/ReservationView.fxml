@@ -67,7 +67,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfDateFrom" alignment="CENTER" editable="false">
+            <TextField fx:id="tfDateFrom" editable="false">
                <HBox.margin>
                   <Insets left="33.0" />
                </HBox.margin>
@@ -77,7 +77,7 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </RadioButton>
-            <ChoiceBox fx:id="cbMassage" prefHeight="24.0" prefWidth="96.0" />
+            <ChoiceBox fx:id="cbMassage" onMousePressed="#cbActionMassage" prefHeight="24.0" prefWidth="96.0" stylesheets="@css/massage.css" />
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
@@ -134,16 +134,21 @@
       </Line>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" styleClass="label_black" text="First name:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="129.0" styleClass="label_black" text="First name:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfFirstName">
+            <TextField fx:id="tfFirstName" onKeyTyped="#tfActionFirstName" prefHeight="24.0" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="lbCheckFirstName" prefHeight="24.0" prefWidth="217.0" style="-fx-text-fill: yellow; -fx-font-size: 19;" text="EMPTY">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Label>
          </children>
          <VBox.margin>
             <Insets top="15.0" />
@@ -151,58 +156,78 @@
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="103.0" styleClass="label_black" text="Last name:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="114.0" styleClass="label_black" text="Last name:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfLastName">
+            <TextField fx:id="tfLastName" onKeyTyped="#tfActionLastName" prefHeight="24.0" prefWidth="235.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="lbCheckLastName" prefHeight="24.0" prefWidth="105.0" style="-fx-text-fill: yellow; -fx-font-size: 19;" text="EMPTY">
+               <padding>
+                  <Insets left="35.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" styleClass="label_black" text="Email:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="114.0" styleClass="label_black" text="Email:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfEmail">
+            <TextField fx:id="tfEmail" onKeyTyped="#tfActionEmail" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="lbCheckEmail" prefHeight="24.0" prefWidth="186.0" style="-fx-text-fill: yellow; -fx-font-size: 19;" text="EMPTY">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" styleClass="label_black" text="ID number:">
+            <Label id="flatbee-large" prefWidth="114.0" styleClass="label_black" text="ID number:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfIdNumber">
+            <TextField fx:id="tfIdNumber" onKeyTyped="#tfActionIDNumber" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="lbCheckIDNumber" prefHeight="24.0" prefWidth="183.0" style="-fx-text-fill: yellow; -fx-font-size: 19;" text="EMPTY">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
          <children>
-            <Label id="flatbee-large" prefHeight="21.0" prefWidth="102.0" styleClass="label_black" text="Phone:">
+            <Label id="flatbee-large" prefHeight="21.0" prefWidth="114.0" styleClass="label_black" text="Phone:">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfPhone">
+            <TextField fx:id="tfPhone" onKeyTyped="#tfActionPhone" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
             </TextField>
+            <Label fx:id="lbCheckPhone" prefHeight="24.0" prefWidth="184.0" style="-fx-text-fill: yellow; -fx-font-size: 19;" text="EMPTY">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <Line endX="800.0" endY="-4.349471092224121" startX="250.0" startY="-4.349642753601074">
@@ -210,7 +235,7 @@
             <Insets left="20.0" />
          </VBox.margin>
       </Line>
-      <Button id="rnd" fx:id="btConfirmReservation" mnemonicParsing="false" onAction="#btActionConfrimReservation" prefHeight="76.0" prefWidth="491.0" text="Confirm reservation">
+      <Button id="rnd" fx:id="btConfirmReservation" disable="true" mnemonicParsing="false" onAction="#btActionConfrimReservation" prefHeight="76.0" prefWidth="491.0" text="Confirm reservation">
          <VBox.margin>
             <Insets left="50.0" right="50.0" top="20.0" />
          </VBox.margin>
