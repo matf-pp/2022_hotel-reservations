@@ -65,6 +65,7 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
                 break
             }
         }
+        super.id = final_id
         return final_id
     }
 }

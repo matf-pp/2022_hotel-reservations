@@ -44,6 +44,7 @@ class PremiumApartment() : Room() {
                 break
             }
         }
+        super.id = final_id
         return final_id
     }
 

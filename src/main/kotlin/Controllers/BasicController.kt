@@ -12,6 +12,8 @@ import java.time.temporal.ChronoUnit
 class BasicController {
 
     private val numberOfPersonsBegin : String = "Number of persons: "
+    lateinit var datFrom : LocalDate
+    lateinit var datTo : LocalDate
 
     lateinit var room : Basic
 
@@ -74,6 +76,9 @@ class BasicController {
     fun btActionCheckAvailability(event: ActionEvent) {
         val dateFrom: LocalDate = dtDateFrom.value
         val dateTo: LocalDate = dtDateTo.value
+        datTo = dtDateTo.value
+        datFrom = dtDateFrom.value
+
 
         val id = room.find_id(dateFrom, dateTo)
         if(id != -1){
@@ -97,6 +102,8 @@ class BasicController {
     fun btActionCheckout(event: ActionEvent) {
         HeadController.reservation.selectedRoom = room
         HeadController.setScene("reservation")
+        HeadController.reservation.fill_fields(datFrom, datTo,
+            ReservationThings.Food(rbBreakfast.isSelected, rbHalfBoard.isSelected, rbFullBoard.isSelected), tfPrice.text)
     }
 
     @FXML
@@ -147,6 +154,16 @@ class BasicController {
                 setLabelTextAndColor(lbSuccess)
                 dtDateTo.value = null
                 dtDateTo.isDisable = false
+                tfSelectedDateFrom.text = ""
+                tfSelectedDateTo.text = ""
+                tfPrice.text = ""
+                lbPrice.isDisable = true
+                tfPrice.isDisable = true
+                rbFullBoard.isDisable = true
+                rbHalfBoard.isDisable = true
+                rbBreakfast.isDisable = true
+                btCheckout.isDisable = true
+                rbBreakfast.isSelected = true
             }
         }
         catch (e : Exception){

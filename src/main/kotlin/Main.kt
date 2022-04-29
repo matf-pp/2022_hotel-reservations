@@ -37,12 +37,12 @@ class MainWindow : Application()
         var premium_apartment  = PremiumApartment()
 
         var valentines_day : SpecialOffer = SpecialOffer(Food(false,true,false), 2,true,true,
-            false,true,1.0,0.5,0.9,0.8,)
-        var family_package_4 : SpecialOffer = SpecialOffer(Food(false,false,true),4,true,true,false,
+            2,true,1.0,0.5,0.9,0.8,)
+        var family_package_4 : SpecialOffer = SpecialOffer(Food(false,false,true),4,true,true,2,
             false, 0.0, 0.0, 0.5,0.7)
-        var family_package_3 : SpecialOffer = SpecialOffer(Food(false,false,true),3,true,true,false,
+        var family_package_3 : SpecialOffer = SpecialOffer(Food(false,false,true),3,true,true,2,
             false, 0.0, 0.0, 0.66,0.7)
-        var birthday_package = SpecialOffer(Food(false,false,true), 2,true,true,true,true,
+        var birthday_package = SpecialOffer(Food(false,false,true), 2,true,true,2,true,
             0.0,0.0,0.6,0.7)
 
         // init food and set to head controller

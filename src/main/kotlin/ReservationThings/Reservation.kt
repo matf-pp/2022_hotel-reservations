@@ -27,6 +27,7 @@ class Reservation(var first_name : String,
 
     fun calculateFinalPrice() : Double {
        return length_of_stay * (offer.offer_price_per_day() + selected_room.price_per_night)
+            + offer.party_price + offer.massage_price
     }
 
     override fun toString(): String {
@@ -56,9 +57,10 @@ class Reservation(var first_name : String,
     }
 
     companion object {
+
         fun preCalculateFinalPrice(pre_dat_od : LocalDate, pre_dat_do : LocalDate, pre_selected_room : Room, pre_offer : Offer) : Double{
             val duzina_trajanja = abs((pre_dat_od.compareTo(pre_dat_do)))
-            return duzina_trajanja * (pre_offer.offer_price_per_day() + pre_selected_room.price_per_night)
+            return duzina_trajanja * (pre_offer.offer_price_per_day() + pre_selected_room.price_per_night) + pre_offer.party_price + pre_offer.massage_price
         }
         fun preCalculateFinalPriceWithoutOffer(pre_dat_od : LocalDate, pre_dat_do : LocalDate, pre_selected_room : Room) : Double{
             val duzina_trajanja = ChronoUnit.DAYS.between(pre_dat_od, pre_dat_do)

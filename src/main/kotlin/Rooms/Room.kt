@@ -10,6 +10,7 @@ abstract class Room() {
     var pictures : MutableList<String>? = null
     var availability = mutableMapOf <Int, MutableList<LocalDate>>()
     open var num_beds : Int = 0
+    var id : Int = -1
 
     constructor(num_beds : Int) : this() {
         this.num_beds = num_beds
