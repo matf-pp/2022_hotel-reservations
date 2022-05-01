@@ -105,7 +105,7 @@
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="301.0" spacing="10.0">
                <children>
                   <Label styleClass="label_black" text="Date from:" />
-                  <DatePicker fx:id="dtDateFrom" onAction="#dtActionDateFrom" styleClass="date-picker" />
+                  <DatePicker fx:id="dtDateFrom" editable="false" onAction="#dtActionDateFrom" styleClass="date-picker" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />
@@ -118,7 +118,7 @@
                         <String fx:value="label_black" />
                         <String fx:value="label" />
                      </styleClass></Label>
-                  <DatePicker fx:id="dtDateTo" disable="true" onAction="#dtActionDateTo" styleClass="date-picker" />
+                  <DatePicker fx:id="dtDateTo" disable="true" editable="false" onAction="#dtActionDateTo" styleClass="date-picker" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />
@@ -189,7 +189,7 @@
                   </TextField>
                </children>
             </HBox>
-            <RadioButton fx:id="rbBreakfast" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionBreakfast" prefHeight="50.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Breakfast" textAlignment="CENTER">
+            <RadioButton fx:id="rbBreakfast" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionBreakfast" prefHeight="50.0" prefWidth="244.0" selected="true" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Breakfast" textAlignment="CENTER">
                <VBox.margin>
                   <Insets right="30.0" />
                </VBox.margin>

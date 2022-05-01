@@ -21,7 +21,7 @@ class BasicController : Initializable{
     lateinit var datTo : LocalDate
 
     lateinit var room : Basic
-    var final_id = -1
+    private var final_id = -1
 
     private val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
@@ -146,13 +146,6 @@ class BasicController : Initializable{
             tfPrice.text = calculate_final_price_room_food().toString()
         }
     }
-    private fun resetDates(){
-        dtDateFrom.isDisable = false
-        dtDateTo.isDisable = true
-        dtDateFrom.value = null
-        dtDateTo.value = null
-        btCheckAvailability.isDisable = true
-    }
 
     @FXML
     fun dtActionDateFrom(event: ActionEvent) {
@@ -201,6 +194,16 @@ class BasicController : Initializable{
         catch (e : Exception){
 
         }
+    }
+
+
+    // non FXML functions
+    private fun resetDates(){
+        dtDateFrom.isDisable = false
+        dtDateTo.isDisable = true
+        dtDateFrom.value = null
+        dtDateTo.value = null
+        btCheckAvailability.isDisable = true
     }
 
     private fun hard_reset(){

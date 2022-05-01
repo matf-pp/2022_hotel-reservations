@@ -77,11 +77,11 @@ class MainWindow : Application()
         HeadController.add_windows_to_map("reservation", Scene(reservationRoot, 600.0, 811.0))
 
         // get controllers
-        var hotelController : HotelController = hotelFXML.getController()
-        var basicController : BasicController = basicFXML.getController()
-        var premiumController : PremiumApartmentController= premiumFXML.getController()
-        var superiorController : SuperiorController = superiorFXML.getController()
-        var reservationController : ReservationController = reservationFXML.getController()
+        val hotelController : HotelController = hotelFXML.getController()
+        val basicController : BasicController = basicFXML.getController()
+        val premiumController : PremiumApartmentController= premiumFXML.getController()
+        val superiorController : SuperiorController = superiorFXML.getController()
+        val reservationController : ReservationController = reservationFXML.getController()
 
 
         // init hotel controller
@@ -107,8 +107,8 @@ class MainWindow : Application()
 
         // init radio buttons for food controllers
         basicController.set_toggle_food()
-        // todo superior
-        // todo preimum
+        superiorController.set_toggle_food()
+        premiumController.set_toggle_food()
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Bingo hotel"

@@ -96,7 +96,7 @@
       </Line>
       <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="314.0" spacing="15.0">
          <children>
-            <Label alignment="CENTER" prefHeight="65.0" prefWidth="312.0" styleClass="label_black" text="Premium Room">
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="312.0" styleClass="label_black" text="Premium room">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -105,7 +105,7 @@
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="301.0" spacing="10.0">
                <children>
                   <Label styleClass="label_black" text="Date from:" />
-                  <DatePicker fx:id="dtDateFrom" styleClass="date-picker" />
+                  <DatePicker fx:id="dtDateFrom" editable="false" onAction="#dtActionDateFrom" styleClass="date-picker" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />
@@ -113,8 +113,13 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="49.0" prefWidth="301.0" spacing="10.0">
                <children>
-                  <Label styleClass="label_black" text="Date to:    " />
-                  <DatePicker fx:id="dtDateTo" styleClass="date-picker" />
+                  <Label text="Date to:    ">
+                     <styleClass>
+                        <String fx:value="label_black" />
+                        <String fx:value="label" />
+                     </styleClass>
+                  </Label>
+                  <DatePicker fx:id="dtDateTo" disable="true" editable="false" onAction="#dtActionDateTo" styleClass="date-picker" />
                </children>
                <VBox.margin>
                   <Insets left="10.0" />
@@ -125,7 +130,7 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <Button id="green" fx:id="btCheckAvailability" mnemonicParsing="false" onAction="#btActionCheckAvailability" prefHeight="41.0" prefWidth="266.0" text="Check availability">
+            <Button id="green" fx:id="btCheckAvailability" disable="true" mnemonicParsing="false" onAction="#btActionCheckAvailability" prefHeight="41.0" prefWidth="266.0" text="Check availability">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -140,18 +145,52 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </ProgressIndicator>
-                  <Label fx:id="lbSuccess" alignment="CENTER" prefHeight="48.0" prefWidth="196.0" style="-fx-text-fill: green;" text="Success" textFill="#5bd71d">
+                  <Label id="flatbee-large" fx:id="lbSuccess" prefHeight="48.0" prefWidth="196.0" style="-fx-border-color: black;" styleClass="label_black" textFill="#5bd71d">
                      <font>
                         <Font size="24.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                </children>
             </HBox>
             <Line endX="100.0" startX="-180.0" startY="-0.41421353816986084" />
-            <RadioButton fx:id="rbBreakfast" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionBreakfast" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Breakfast" textAlignment="CENTER">
+            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="311.0">
+               <children>
+                  <Label id="flatbee-medium" prefHeight="30.0" prefWidth="166.0" styleClass="label_black" text="Selected date from:">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="tfSelectedDateFrom" editable="false">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="311.0">
+               <children>
+                  <Label id="flatbee-medium" prefHeight="30.0" prefWidth="166.0" styleClass="label_black" text="Selected date to:">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="tfSelectedDateTo" editable="false">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <RadioButton fx:id="rbBreakfast" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionBreakfast" prefHeight="50.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Breakfast" textAlignment="CENTER">
                <VBox.margin>
                   <Insets right="30.0" />
                </VBox.margin>
@@ -162,7 +201,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="rbLunch" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionLunch" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Lunch" textAlignment="CENTER">
+            <RadioButton fx:id="rbHalfBoard" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionHalfBoard" prefHeight="50.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Half-board" textAlignment="CENTER">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -173,7 +212,7 @@
                   <Insets right="30.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton fx:id="rbDinner" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionDinner" prefHeight="37.0" prefWidth="244.0" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Dinner" textAlignment="CENTER">
+            <RadioButton fx:id="rbFullBoard" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#rbActionFullBoard" prefHeight="50.0" prefWidth="244.0" selected="true" style="-fx-border-style: solid; -fx-border-radius: 10px;" text="Full-board" textAlignment="CENTER">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>
@@ -186,7 +225,7 @@
             </RadioButton>
             <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="311.0">
                <children>
-                  <Label id="flatbee-xlarge" disable="true" prefHeight="55.0" prefWidth="163.0" styleClass="label_black" text="Total price:">
+                  <Label id="flatbee-xlarge" fx:id="lbPrice" disable="true" prefHeight="55.0" prefWidth="163.0" styleClass="label_black" text="Total price:">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -201,15 +240,15 @@
                   <Insets left="20.0" />
                </VBox.margin>
             </HBox>
-            <Button id="green" fx:id="btCheckout" disable="true" mnemonicParsing="false" onAction="#btActionCheckout" prefHeight="41.0" prefWidth="266.0" text="Go to checkout">
+            <Button id="green" fx:id="btCheckout" disable="true" mnemonicParsing="false" onAction="#btActionCheckout" prefHeight="60.0" prefWidth="266.0" text="Go to checkout">
                <VBox.margin>
-                  <Insets bottom="40.0" />
+                  <Insets bottom="10.0" />
                </VBox.margin>
             </Button>
          </children>
          <stylesheets>
-            <URL value="@css/theme.css" />
             <URL value="@css/buttons.css" />
+            <URL value="@css/theme.css" />
          </stylesheets>
       </VBox>
    </children>

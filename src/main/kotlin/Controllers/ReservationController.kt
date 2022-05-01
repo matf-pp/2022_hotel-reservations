@@ -155,6 +155,27 @@ class ReservationController {
         btConfirmReservation.isDisable = !(checkFirstName && checkLastName && checkEmail && checkID && checkPhone)
 
     }
+
+    private fun reset(){
+        tfFirstName.text = ""
+        tfLastName.text = ""
+        tfEmail.text = ""
+        tfPhone.text = ""
+        tfIdNumber.text = ""
+
+        setLabelTextAndColor(lbCheckIDNumber, "EMPTY", "yellow")
+        setLabelTextAndColor(lbCheckPhone, "EMPTY", "yellow")
+        setLabelTextAndColor(lbCheckEmail, "EMPTY", "yellow")
+        setLabelTextAndColor(lbCheckFirstName, "EMPTY", "yellow")
+        setLabelTextAndColor(lbCheckLastName, "EMPTY", "yellow")
+
+        rbMassage.isSelected = false
+        rbParking.isSelected = false
+        rbParty.isSelected = false
+        rbWellness.isSelected = false
+
+        btConfirmReservation.isDisable = true
+    }
     //indikator za cbMassage, zbog inicijalizovanja - da ne dodaje svaki put nove opcije u cb
     private var indikator = 0
 
@@ -235,11 +256,13 @@ class ReservationController {
         val offer = Offer(food1, selectedRoom.num_beds, rbParking.isSelected,
             rbWellness.isSelected, 0, rbParty.isSelected)
         val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer)
+        reset()
         HeadController.setScene("hotel")
     }
 
     @FXML
     fun btActionExit(event: ActionEvent) {
+        reset()
         HeadController.stage.scene = HeadController.scene_map["hotel"]
     }
     @FXML
@@ -324,4 +347,5 @@ class ReservationController {
     fun tfActionPhone(event: KeyEvent) {
         check_user_input()
     }
+
 }
