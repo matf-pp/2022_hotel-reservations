@@ -1,15 +1,20 @@
 package Controllers
 
-import ReservationThings.Reservation
 import Rooms.Basic
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
+import javafx.fxml.Initializable
 import javafx.scene.control.*
 import javafx.scene.paint.Color
+import javafx.util.StringConverter
+import java.net.URL
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import java.util.*
 
-class BasicController {
+class BasicController : Initializable{
+
 
     private val numberOfPersonsBegin : String = "Number of persons: "
     lateinit var datFrom : LocalDate
@@ -17,6 +22,8 @@ class BasicController {
 
     lateinit var room : Basic
     var final_id = -1
+
+    private val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 
     @FXML
     private lateinit var btAbout: Button
@@ -85,8 +92,8 @@ class BasicController {
         if(final_id != -1){
             pbSuccess.progress = 1.0
             unlock()
-            tfSelectedDateFrom.text = dateFrom.toString()
-            tfSelectedDateTo.text = dateTo.toString()
+            tfSelectedDateFrom.text = dtDateFrom.value.format(dateFormatter)
+            tfSelectedDateTo.text = dtDateTo.value.format(dateFormatter)
             setLabelTextAndColor(lbSuccess, "Success", "green")
             tfPrice.text = calculate_final_price_room_food().toString()
             lbNumOfPersons.requestFocus()
@@ -195,7 +202,8 @@ class BasicController {
 
         }
     }
-    fun hard_reset(){
+
+    private fun hard_reset(){
         resetDates()
         setLabelTextAndColor(lbSuccess)
         tfSelectedDateFrom.text = ""
@@ -255,8 +263,8 @@ class BasicController {
     }
 
     private fun calculate_final_price_room_food() : Double{
-        val localDateFrom = LocalDate.parse(tfSelectedDateFrom.text)
-        val localDateTo = LocalDate.parse(tfSelectedDateTo.text)
+        val localDateFrom = LocalDate.parse(tfSelectedDateFrom.text, dateFormatter)
+        val localDateTo = LocalDate.parse(tfSelectedDateTo.text, dateFormatter)
 
         var cena : Double = 0.0
         val duzina_ostajanja = ChronoUnit.DAYS.between(localDateFrom, localDateTo)
@@ -270,6 +278,20 @@ class BasicController {
             cena += HeadController.foodFull.get_total_price() * room.num_beds * duzina_ostajanja
         }
         return cena + room.price_per_night * duzina_ostajanja
+    }
+
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
+        val converter = object : StringConverter<LocalDate?>() {
+            override fun toString(date: LocalDate?): String? {
+                return if (date != null) dateFormatter.format(date) else ""
+            }
+
+            override fun fromString(string: String): LocalDate? {
+                return if (string.isNotEmpty()) LocalDate.parse(string, dateFormatter) else null
+            }
+        }
+        dtDateFrom.converter = converter
+        dtDateTo.converter = converter
     }
 
 }
