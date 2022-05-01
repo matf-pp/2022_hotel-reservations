@@ -37,10 +37,16 @@ class ReservationController {
         tfTotalPrice.text = price_room_food
         lock_cb()
 
-        var numMassage : Int = if(rbMassage.isSelected) cbMassage.value as Int else 0
+        // TODO baca neki exception sada
+        //var numMassage : Int = if(rbMassage.isSelected) cbMassage.value as Int else 0
         dateFrom = date1
         dateTo = date2
         food1 = food
+        remove_focus()
+    }
+
+    private fun remove_focus(){
+        lbCheckEmail.requestFocus()
     }
 
     private fun initialize(){

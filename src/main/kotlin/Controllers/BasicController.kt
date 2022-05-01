@@ -83,13 +83,16 @@ class BasicController {
 
         final_id = room.find_id(dateFrom, dateTo)
         if(final_id != -1){
+            pbSuccess.progress = 1.0
             unlock()
             tfSelectedDateFrom.text = dateFrom.toString()
             tfSelectedDateTo.text = dateTo.toString()
             setLabelTextAndColor(lbSuccess, "Success", "green")
             tfPrice.text = calculate_final_price_room_food().toString()
+            lbNumOfPersons.requestFocus()
         }
         else {
+            pbSuccess.progress = 1.0
             lock()
             tfSelectedDateFrom.text = ""
             tfSelectedDateTo.text = ""
@@ -105,11 +108,13 @@ class BasicController {
         HeadController.setScene("reservation")
         HeadController.reservation.fill_fields(datFrom, datTo,
             ReservationThings.Food(rbBreakfast.isSelected, rbHalfBoard.isSelected, rbFullBoard.isSelected), tfPrice.text)
+        hard_reset()
     }
 
     @FXML
     fun btHomeActionOpen(event: ActionEvent) {
         lbNumOfPersons.text = ""
+        hard_reset()
         HeadController.setScene("hotel")
     }
     @FXML
@@ -150,8 +155,10 @@ class BasicController {
                 dtDateTo.value = null
                 dtDateTo.isDisable = true
                 btCheckAvailability.isDisable = true
+                pbSuccess.progress = 0.0
             }
             else{
+                pbSuccess.progress = 0.33
                 setLabelTextAndColor(lbSuccess)
                 dtDateTo.value = null
                 dtDateTo.isDisable = false
@@ -181,11 +188,20 @@ class BasicController {
             else{
                 setLabelTextAndColor(lbSuccess)
                 btCheckAvailability.isDisable = false
+                pbSuccess.progress = 0.66
             }
         }
         catch (e : Exception){
 
         }
+    }
+    fun hard_reset(){
+        resetDates()
+        setLabelTextAndColor(lbSuccess)
+        tfSelectedDateFrom.text = ""
+        tfSelectedDateTo.text = ""
+        lock()
+        pbSuccess.progress = 0.0
     }
     fun set_toggle_food() {
         val tgFood = ToggleGroup()

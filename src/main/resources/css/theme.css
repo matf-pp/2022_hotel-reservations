@@ -99,7 +99,7 @@
  * **********
 */
 .label{
-	 -fx-text-fill : -white;
+	 -fx-text-fill : -black;
  }
  
  .label_black {
@@ -127,8 +127,8 @@
    -fx-background-color : -darkGray;
    -fx-focus-color : -darkGray;
 }
-.button:hovered {
-    	-fx-color: -darkGray;
+.button:hover {
+	-fx-color: -darkGray;
 	-fx-inner-border : -darkGray;
 	-fx-body-color : -darkGray;
 }
@@ -199,13 +199,16 @@
  */
 .date-picker{
 	-fx-background-color : -white,-gray,gray;
+	-fx-text-fill: black;
 }
 
 .date-picker>*.arrow-button{
+	-fx-text-fill: black;
 	-fx-background-color : -white,-gray,-gray;
 }
  
  .date-picker>*.arrow-button>*.arrow{
+	 -fx-text-fill: black;
 	-fx-background-color : -darkGray, -black;
 }
 /*
