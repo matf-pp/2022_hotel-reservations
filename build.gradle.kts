@@ -15,6 +15,8 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("com.google.code.gson:gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
 }
 
 javafx {

@@ -1,6 +1,7 @@
 package ReservationThings
 
 import Rooms.Room
+import java.io.File
 import java.time.LocalDate
 import java.time.Period
 import java.time.chrono.ChronoLocalDate
@@ -23,6 +24,18 @@ class Reservation(var first_name : String,
     init {
         final_price = calculateFinalPrice()
         reserve()
+    }
+
+    fun add_reservation_to_file(){
+        var file = File("reservations.txt")
+        //var reservation_string = ""
+        if(file.exists()){
+            println("Postoji fajl")
+            file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}\n")
+        }
+        else{
+            println("Ne postoji fajl")
+        }
     }
 
     fun calculateFinalPrice() : Double {
@@ -57,6 +70,8 @@ class Reservation(var first_name : String,
         }
         println(selected_room.availability)
     }
+
+
 
     companion object {
 
