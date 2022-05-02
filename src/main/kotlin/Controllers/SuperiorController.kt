@@ -5,8 +5,13 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.control.*
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
+import javafx.scene.input.MouseEvent
 import javafx.scene.paint.Color
+import javafx.scene.shape.Polygon
 import javafx.util.StringConverter
+import java.io.File
 import java.net.URL
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -22,6 +27,16 @@ class SuperiorController : Initializable{
     private var final_id = -1
 
     private val dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+
+    // images
+    var images = mutableListOf<Image>()
+    private var image_counter = 0
+
+    // changes if pictures are added/removed, everyhthing else is automated
+    private var numOfPictures = 5
+
+    @FXML
+    private lateinit var imwPicture: ImageView
 
     @FXML
     private lateinit var btAbout: Button
@@ -73,6 +88,48 @@ class SuperiorController : Initializable{
 
     @FXML
     private lateinit var tfSelectedDateTo: TextField
+
+    @FXML
+    private lateinit var btLeft: Polygon
+
+    @FXML
+    private lateinit var btRight: Polygon
+
+    private fun get_image(direction : String) : Image?{
+        var image : Image? = null
+        if(direction == "left"){
+            if (image_counter == 0){
+                image_counter = numOfPictures - 1
+            }
+            else {
+                image_counter -= 1
+            }
+            image = images[image_counter]
+        }
+        else if(direction == "right"){
+            if (image_counter == numOfPictures - 1){
+                image_counter = 0
+            }
+            else {
+                image_counter += 1
+            }
+            image = images[image_counter]
+        }
+        else{
+            println("left or right only!")
+        }
+        return image
+    }
+
+    @FXML
+    fun btActionLeft(event: MouseEvent) {
+        imwPicture.image = get_image("left")
+    }
+
+    @FXML
+    fun btActionRight(event: MouseEvent) {
+        imwPicture.image = get_image("right")
+    }
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
@@ -281,7 +338,17 @@ class SuperiorController : Initializable{
         return cena + room.price_per_night * duzina_ostajanja
     }
 
+    private fun loadImages(){
+        for (i in 1..numOfPictures){
+            val file = File("src/main/resources/images/superior_detailed/superior_detailed_$i.jpg")
+            images.add(Image(file.toURI().toString()))
+        }
+    }
+
     override fun initialize(location: URL?, resources: ResourceBundle?) {
+
+        loadImages()
+
         val converter = object : StringConverter<LocalDate?>() {
             override fun toString(date: LocalDate?): String? {
                 return if (date != null) dateFormatter.format(date) else ""

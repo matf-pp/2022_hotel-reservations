@@ -45,6 +45,23 @@ class ReservationController {
         remove_focus()
     }
 
+    // for premium
+    public fun lock_everything(){
+        rbMassage.isDisable = true
+        rbWellness.isDisable = true
+        rbParty.isDisable = true
+        rbParking.isDisable = true
+        cbMassage.isDisable = true
+    }
+
+    private fun unlock_everything(){
+        rbMassage.isDisable = false
+        rbWellness.isDisable = false
+        rbParty.isDisable = false
+        rbParking.isDisable = false
+        cbMassage.isDisable = false
+    }
+
     private fun remove_focus(){
         lbCheckEmail.requestFocus()
     }
@@ -168,6 +185,8 @@ class ReservationController {
         setLabelTextAndColor(lbCheckEmail, "EMPTY", "yellow")
         setLabelTextAndColor(lbCheckFirstName, "EMPTY", "yellow")
         setLabelTextAndColor(lbCheckLastName, "EMPTY", "yellow")
+
+        unlock_everything()
 
         rbMassage.isSelected = false
         rbParking.isSelected = false

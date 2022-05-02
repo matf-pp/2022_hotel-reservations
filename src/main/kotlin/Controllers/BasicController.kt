@@ -341,7 +341,7 @@ class BasicController : Initializable{
 
     private fun loadImages(){
         for (i in 1..numOfPictures){
-            val file = File("src/main/resources/images/basic_detailed/basic_detailed_$i.jpeg")
+            val file = File("src/main/resources/images/basic_detailed/basic_detailed_$i.jpg")
             images.add(Image(file.toURI().toString()))
         }
     }

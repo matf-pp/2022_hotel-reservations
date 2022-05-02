@@ -106,7 +106,7 @@
                               <Polygon fx:id="btLeft" fill="#929aa1" layoutX="-96.0" onMouseClicked="#btActionLeft" points="-96.63087463378906, 20.457441329956055, -132.10546875, 4.548309803009033, -96.63087463378906, -15.988883972167969" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" />
                               <ImageView fx:id="imwPicture" fitHeight="210.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@images/basic_detailed/basic_detailed_1.jpeg" />
+                                    <Image url="@images/basic_detailed/basic_detailed_1.jpg" />
                                  </image>
                               </ImageView>
                               <Polygon fx:id="btRight" fill="#929aa1" onMouseClicked="#btActionRight" points="-96.6308822631836, 16.48544692993164, -132.08541870117188, -0.38741397857666016, -96.63087463378906, -15.988883972167969" rotate="180.0" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" />

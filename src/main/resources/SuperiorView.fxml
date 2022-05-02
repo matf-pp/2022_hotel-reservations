@@ -40,10 +40,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SuperiorController">
@@ -88,12 +95,175 @@
             </Button>
          </children>
       </VBox>
-      <VBox prefHeight="650.0" prefWidth="601.0" />
-      <Line endX="-100.70710754394531" endY="615.0" startX="-100.0" strokeWidth="3.0">
-         <HBox.margin>
-            <Insets top="10.0" />
-         </HBox.margin>
-      </Line>
+      <ScrollPane prefHeight="1000.0" prefWidth="601.0" stylesheets="@css/theme.css">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="581.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="580.0" spacing="15.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="240.0" prefWidth="200.0" spacing="15.0">
+                           <children>
+                              <Polygon fx:id="btLeft" fill="#929aa1" layoutX="-96.0" onMouseClicked="#btActionLeft" points="-96.63087463378906, 20.457441329956055, -132.10546875, 4.548309803009033, -96.63087463378906, -15.988883972167969" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fx:id="imwPicture" fitHeight="210.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/superior_detailed/superior_detailed_1.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Polygon fx:id="btRight" fill="#929aa1" onMouseClicked="#btActionRight" points="-96.6308822631836, 16.48544692993164, -132.08541870117188, -0.38741397857666016, -96.63087463378906, -15.988883972167969" rotate="180.0" scaleX="1.2" scaleY="1.2" stroke="BLACK" strokeType="INSIDE" />
+                           </children>
+                           <padding>
+                              <Insets top="15.0" />
+                           </padding>
+                        </HBox>
+                        <Line endX="371.29290771484375" endY="-0.4155079126358032" startX="-180.0" startY="-0.41421353816986084" />
+                        <HBox prefHeight="1000.0" spacing="15.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="758.0" prefWidth="316.0">
+                                 <children>
+                                    <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="49.0" prefWidth="275.0" text="Superior room" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="88.0" />
+                                       </font>
+                                    </Label>
+                                    <Label id="flatbee-medium" alignment="TOP_CENTER" prefHeight="33.0" prefWidth="275.0" text="2 , 3 and 4 persons" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Line endX="70.29289245605469" endY="-0.41294634342193604" startX="-180.0" startY="-0.41421353816986084" strokeMiterLimit="5.0" />
+                                    <TextArea editable="false" prefHeight="462.0" prefWidth="260.0" style="-fx-font-size: 15.0;" stylesheets="@css/text_area.css" text="Surface 60 m2, with floor to ceiling windows which offer striking views of the glittering Las Vegas, the Superior room offers a king-sized bed (optional +1 bed) and and seating area with armchairs, occasional tables and desk, large bathroom and high speed WiFi. &#10;&#10;Price list per night:&#10;- 2 persons: 6000 RSD&#10;- 3 persons: 8500 RSD&#10;- 4 persons: 11150 RSD&#10;&#10;&#10;&#10;&#10;" wrapText="true">
+                                       <VBox.margin>
+                                          <Insets left="15.0" />
+                                       </VBox.margin>
+                                    </TextArea>
+                                 </children>
+                              </VBox>
+                              <Line endX="-180.0" endY="1000.0" startX="-180.0" startY="-0.41421353816986084" />
+                              <VBox prefHeight="758.0" prefWidth="316.0">
+                                 <children>
+                                    <Label id="flatbee-xlarge" prefHeight="33.0" prefWidth="228.0" text="Hotel Amenities" />
+                                    <Line endX="70.29289245605469" endY="-0.41294634342193604" startX="-180.0" startY="-0.41421353816986084" strokeMiterLimit="5.0" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Connecting rooms" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Free WiFi" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Welness center" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Parking" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Concierge" />
+                                       </children>
+                                    </HBox>
+                                    <Label id="flatbee-xlarge" prefHeight="33.0" prefWidth="228.0" text="Room highlights">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Line endX="70.29289245605469" endY="-0.41294634342193604" startX="-180.0" startY="-0.41421353816986084" strokeMiterLimit="5.0" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Luxury" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Hand-held shower" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="LCD TV" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Iron" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Bathroom amenities" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Bath slippers" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Hairdryer" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Bathrobe" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Air conditioning" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="HD Channels" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Parking" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="255.0" spacing="15.0">
+                                       <children>
+                                          <Circle fill="#0000006b" radius="7.0" stroke="#2e1a1a00" strokeType="INSIDE" />
+                                          <Label id="intermediate" prefHeight="46.0" prefWidth="184.0" text="Mini bar" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
       <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="314.0" spacing="15.0">
          <children>
             <Label alignment="CENTER" prefHeight="65.0" prefWidth="312.0" styleClass="label_black" text="Superior Room">

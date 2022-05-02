@@ -10,8 +10,7 @@ abstract class Room() {
     var pictures : MutableList<String>? = null
     var availability = mutableMapOf <Int, MutableList<LocalDate>>()
 
-    // TODO podeseno na 1 zbog premium, bilo je 0
-    open var num_beds : Int = 1
+    open var num_beds : Int = 0
     var id : Int = -1
 
     constructor(num_beds : Int) : this() {
