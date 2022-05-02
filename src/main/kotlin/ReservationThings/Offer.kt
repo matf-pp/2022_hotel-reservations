@@ -23,4 +23,8 @@ open class Offer(open var food : Food,
         var price_party = 500
     }
 
+    override fun toString(): String {
+        return "${food.toString()}, $num_persons, $parking, $wellness, $massage, $party"
+    }
+
 }

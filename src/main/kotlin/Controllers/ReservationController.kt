@@ -17,6 +17,8 @@ import javafx.scene.paint.Color
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
+
+
 class ReservationController {
 
     lateinit var  selectedRoom : Room
@@ -276,7 +278,12 @@ class ReservationController {
             rbWellness.isSelected, 0, rbParty.isSelected)
         val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer)
         reset()
+        //val jsonString = Gson().toJson(new_reservation)  // json string
+        //print(jsonString)
+        //var json = Json.encodeToString(new_reservation)
+        //print(json)
         HeadController.setScene("hotel")
+        new_reservation.add_reservation_to_file()
     }
 
     @FXML

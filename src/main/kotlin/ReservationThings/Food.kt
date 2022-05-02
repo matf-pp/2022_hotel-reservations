@@ -25,4 +25,8 @@ class Food(breakfast : Boolean, half_board : Boolean, full_board : Boolean) {
             return
         this.price_full_board = procenat * this.price_full_board
     }
+
+    override fun toString(): String {
+        return "${price_breakfast > 0}, ${price_half_board > 0}, ${price_full_board > 0}"
+    }
 }

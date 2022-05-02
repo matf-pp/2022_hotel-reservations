@@ -1,3 +1,4 @@
+import java.io.File
 import java.time.LocalDate
 import java.time.Period
 import java.time.temporal.ChronoUnit
@@ -14,6 +15,7 @@ fun main() {
     var dat2 : LocalDate = LocalDate.of(2022,4,21)
     duzina = dat1.compareTo(dat2)
     duzina2 = ChronoUnit.DAYS.between(dat1, dat2)
+
 
     //println(duzina)
     //println(duzina2)
@@ -39,8 +41,41 @@ fun main() {
 
     println(lista)
 
+    fun dodaj_u_fajl(){
+        var file = File("reservations.txt")
+        if(file.exists()){
+            println("Postoji fajl")
+            file.writeText("anja\n")
+            file.appendText("nikola")
+            file.appendText("")
+        }
+        else{
+            println("Ne postoji fajl")
+        }
+    }
+    //dodaj_u_fajl()
 
+    fun add_reservation_to_file(){
+        var file = File("reservations.txt")
+        var reservation_string = ""
+        if(file.exists()){
+            println("Postoji fajl")
+            file.appendText("5: ")
+            var lista = mutableListOf<LocalDate>()
+            for (i in 0..duzina2.toInt()-1) {
+                val period = Period.of(0, 0, i)
+                val date = dat1.plus(period)
+                lista.add(date)
+            }
+            for(i in 0..duzina2.toInt()-1){
+                if(i<duzina2.toInt()-1)
+                    file.appendText(lista[i].toString().plus(", "))
+                else
+                    file.appendText(lista[i].toString().plus("\n"))
+            }
+        }
 
-
+    }
+    add_reservation_to_file()
 
 }

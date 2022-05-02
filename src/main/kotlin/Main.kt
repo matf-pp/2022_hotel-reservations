@@ -1,8 +1,11 @@
 import Controllers.*
 import ReservationThings.Food
+import ReservationThings.Offer
+import ReservationThings.Reservation
 import ReservationThings.SpecialOffer
 import Rooms.Basic
 import Rooms.PremiumApartment
+import Rooms.Room
 import Rooms.Superior
 import javafx.application.Application
 import javafx.application.Application.launch
@@ -10,11 +13,13 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import java.io.File
 import java.time.LocalDate
 
 fun main(args: Array<String>)
 {
     launch(MainWindow::class.java)
+
 }
 
 class MainWindow : Application()
@@ -53,6 +58,44 @@ class MainWindow : Application()
         HeadController.foodBreakfast = foodBreakfast
         HeadController.foodHalf = foodHalf
         HeadController.foodFull = foodFull
+
+        fun read_from_file(){
+            var file = File("reservations.txt")
+            var linije = file.readLines()
+            for (linija in linije){
+                var tokeni = linija.split(", ")
+                var id_room = tokeni[0].trim().toInt()
+                var datum1 = tokeni[1].trim().split("-")
+                var datum2 = tokeni[2].trim().split("-")
+                var date_from = LocalDate.of(datum1[0].trim().toInt(), datum1[1].trim().toInt(), datum1[2].trim().toInt())
+                var date_to = LocalDate.of(datum2[0].trim().toInt(), datum2[1].trim().toInt(), datum2[2].trim().toInt())
+                var first_name = tokeni[3].trim()
+                var last_name = tokeni[4].trim()
+                var id_number = tokeni[5].trim()
+                var food = Food(tokeni[6].trim().toBoolean(), tokeni[7].trim().toBoolean(), tokeni[8].trim().toBoolean())
+                var num_beds = tokeni[9].trim().toInt()
+                var parking = tokeni[10].trim().toBoolean()
+                var wellness = tokeni[11].trim().toBoolean()
+                var massage = tokeni[12].trim().toInt()
+                var party = tokeni[13].trim().toBoolean()
+
+                var room : Room = when(num_beds){
+                    2 -> if(id_room < 200) basic_room_two
+                            else  superior_room_two
+                    3 -> if(id_room < 200) basic_room_three
+                    else  superior_room_three
+
+                    else -> if(id_room < 200) basic_room_four
+                                else if(id_room < 300) superior_room_four
+                                        else premium_apartment
+
+                }
+                var offer = Offer(food, num_beds, parking, wellness, massage, party)
+                var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer)
+            }
+        }
+
+        read_from_file()
 
         // fxml loaders
         val hotelFXML = FXMLLoader(MainWindow::class.java.getResource("HotelView.fxml"))
