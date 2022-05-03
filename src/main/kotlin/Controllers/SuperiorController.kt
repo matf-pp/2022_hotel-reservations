@@ -133,7 +133,8 @@ class SuperiorController : Initializable{
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
-
+        HeadController.setScene("about")
+        // todo reset
     }
     @FXML
     fun btActionCheckAvailability(event: ActionEvent) {

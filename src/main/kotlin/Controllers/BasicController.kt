@@ -135,7 +135,8 @@ class BasicController : Initializable{
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
-
+        HeadController.setScene("about")
+        // TODO reset
     }
     @FXML
     fun btActionCheckAvailability(event: ActionEvent) {

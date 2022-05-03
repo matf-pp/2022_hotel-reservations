@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AboutController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="171.0" style="-fx-background-color: -white,-gray,gray;" styleClass="root" stylesheets="@css/theme.css">
+         <children>
+            <Button fx:id="btHome" mnemonicParsing="false" onAction="#btHomeActionOpen" prefHeight="48.0" prefWidth="155.0" text="Home" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Times New Roman" size="17.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="root" />
+                  <String fx:value="radio-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btReservations" layoutX="17.0" layoutY="20.0" mnemonicParsing="false" onAction="#btReservationsActionOpen" prefHeight="48.0" prefWidth="154.0" text="Reservations">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Times New Roman" size="17.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="root" />
+                  <String fx:value="radio-button" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btAbout" layoutX="17.0" layoutY="78.0" mnemonicParsing="false" onAction="#btAboutActionOpen" prefHeight="48.0" prefWidth="156.0" text="About">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Times New Roman" size="17.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="root" />
+                  <String fx:value="radio-button" />
+               </styleClass>
+            </Button>
+         </children>
+      </VBox>
+      <ScrollPane prefHeight="650.0" prefWidth="907.0" stylesheets="@css/theme.css">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="890.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="1500.0" prefWidth="890.0" spacing="10.0">
+                     <children>
+                        <Label id="flatbee-jumbo" alignment="CENTER" prefHeight="104.0" prefWidth="439.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Lucky 5" />
+                        <Line endX="100.0" startX="-450.0" stroke="#270a7c" strokeWidth="2.0" />
+                        <Label id="flatbee-xlarge" prefHeight="43.0" prefWidth="717.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Hotel Amenities :" />
+                        <HBox prefHeight="264.0" prefWidth="890.0" spacing="20.0">
+                           <padding>
+                              <Insets bottom="20.0" left="70.0" right="70.0" top="20.0" />
+                           </padding>
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="203.0" prefWidth="257.0" spacing="15.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Dog friendly" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Consierge" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Business center" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Parking/Garage" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Casino" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="203.0" prefWidth="257.0" spacing="15.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Heliport" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="ATM" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Restaurants &amp; Bars" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Wellness &amp; Spa" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Gym &amp; Fitness" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="203.0" prefWidth="257.0" spacing="15.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Wi-Fi" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Tennis court" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="24/7 Room Service" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Beach &amp; Pool" />
+                                    <Label alignment="CENTER" prefHeight="32.0" prefWidth="205.0" style="-fx-border-color: black; -fx-border-radius: 10px;" styleClass="label_black" text="Play Room" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Line endX="100.0" startX="-650.0" stroke="#270a7c" strokeWidth="2.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Line>
+                        <ImageView fitHeight="404.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <image>
+                              <Image url="@images/lucky5.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Line endX="100.0" startX="-650.0" stroke="#270a7c" strokeWidth="2.0" />
+                        <Label id="flatbee-large" prefHeight="43.0" prefWidth="717.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Contact: +381 11 123456" />
+                        <Label id="flatbee-large" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="717.0" style="-fx-text-fill: rgb(26, 38, 171);" text="E-mail: mi18084@alas.matf.bg.ac.rs, mr18137@alas.matf.bg.ac.rs">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Label>
+                        <Label id="flatbee-large" alignment="TOP_LEFT" prefHeight="43.0" prefWidth="717.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Adress: Studentski Trg 16">
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</HBox>

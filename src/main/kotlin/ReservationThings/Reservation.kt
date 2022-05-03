@@ -28,9 +28,7 @@ class Reservation(var first_name : String,
 
     fun add_reservation_to_file(){
         var file = File("reservations.txt")
-        //var reservation_string = ""
         if(file.exists()){
-            println("Postoji fajl")
             file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}\n")
         }
         else{

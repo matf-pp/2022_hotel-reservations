@@ -138,7 +138,8 @@ class HotelController : HeadController(){
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
-        // TODO
+        HeadController.setScene("about")
+        // TODO reset
     }
 
 }
