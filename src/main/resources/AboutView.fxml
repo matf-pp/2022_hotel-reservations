@@ -13,7 +13,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AboutController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="171.0" style="-fx-background-color: -white,-gray,gray;" styleClass="root" stylesheets="@css/theme.css">
@@ -42,7 +41,7 @@
                   <String fx:value="radio-button" />
                </styleClass>
             </Button>
-            <Button fx:id="btAbout" layoutX="17.0" layoutY="78.0" mnemonicParsing="false" onAction="#btAboutActionOpen" prefHeight="48.0" prefWidth="156.0" text="About">
+            <Button fx:id="btAbout" disable="true" layoutX="17.0" layoutY="78.0" mnemonicParsing="false" onAction="#btAboutActionOpen" prefHeight="48.0" prefWidth="156.0" text="About">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -62,8 +61,37 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="1500.0" prefWidth="890.0" spacing="10.0">
                      <children>
-                        <Label id="flatbee-jumbo" alignment="CENTER" prefHeight="104.0" prefWidth="439.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Lucky 5" />
-                        <Line endX="100.0" startX="-450.0" stroke="#270a7c" strokeWidth="2.0" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label id="flatbee-jumbo" alignment="CENTER" prefHeight="100.0" prefWidth="224.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Lucky 5" />
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                                 <image>
+                                    <Image url="@images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                                 <image>
+                                    <Image url="@images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                                 <image>
+                                    <Image url="@images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                                 <image>
+                                    <Image url="@images/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                                 <image>
+                                    <Image url="@images/star.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Line endX="100.0" startX="-470.0" stroke="#270a7c" strokeWidth="2.0" />
                         <Label id="flatbee-xlarge" prefHeight="43.0" prefWidth="717.0" style="-fx-text-fill: rgb(26, 38, 171);" text="Hotel Amenities :" />
                         <HBox prefHeight="264.0" prefWidth="890.0" spacing="20.0">
                            <padding>

@@ -104,6 +104,7 @@ class MainWindow : Application()
         val premiumFXML = FXMLLoader(MainWindow::class.java.getResource("PremiumApartmentView.fxml"))
         val reservationFXML = FXMLLoader(MainWindow::class.java.getResource("ReservationView.fxml"))
         val aboutFXML = FXMLLoader(MainWindow::class.java.getResource("AboutView.fxml"))
+        val reservationsListFXML = FXMLLoader(MainWindow::class.java.getResource("ReservationsListView.fxml"))
 
         // load controller instances and roots for each room
         val hotelRoot : Parent = hotelFXML.load()
@@ -112,6 +113,7 @@ class MainWindow : Application()
         val premiumRoot : Parent = premiumFXML.load()
         val reservationRoot : Parent = reservationFXML.load()
         val aboutRoot : Parent = aboutFXML.load()
+        val reservationsListRoot : Parent = reservationsListFXML.load()
 
         // init static/global head controller
         HeadController.setterStage(primaryStage)
@@ -121,6 +123,7 @@ class MainWindow : Application()
         HeadController.add_windows_to_map("premium" , Scene(premiumRoot , WIDTH, HEIGTH))
         HeadController.add_windows_to_map("reservation", Scene(reservationRoot, 600.0, 811.0))
         HeadController.add_windows_to_map("about", Scene(aboutRoot, WIDTH, HEIGTH))
+        HeadController.add_windows_to_map("reservationsList", Scene(reservationsListRoot, WIDTH, HEIGTH))
 
         // get controllers
         val hotelController : HotelController = hotelFXML.getController()

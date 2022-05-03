@@ -133,8 +133,8 @@ class PremiumApartmentController : Initializable{
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
+        hard_reset()
         HeadController.setScene("about")
-        // todo reset
     }
     @FXML
     fun btActionCheckAvailability(event: ActionEvent) {
@@ -184,7 +184,8 @@ class PremiumApartmentController : Initializable{
     }
     @FXML
     fun btReservationsActionOpen(event: ActionEvent) {
-
+        hard_reset()
+        HeadController.setScene("reservationsList")
     }
     //  DOESNT HAVE ANY EFFECT IN NEXT 3
     @FXML

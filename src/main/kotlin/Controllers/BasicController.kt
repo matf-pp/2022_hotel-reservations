@@ -136,7 +136,7 @@ class BasicController : Initializable{
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
         HeadController.setScene("about")
-        // TODO reset
+        hard_reset()
     }
     @FXML
     fun btActionCheckAvailability(event: ActionEvent) {
@@ -184,7 +184,8 @@ class BasicController : Initializable{
     }
     @FXML
     fun btReservationsActionOpen(event: ActionEvent) {
-
+        hard_reset()
+        HeadController.setScene("reservationsList")
     }
     @FXML
     fun rbActionBreakfast(event: ActionEvent) {

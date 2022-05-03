@@ -133,13 +133,12 @@ class HotelController : HeadController(){
     }
     @FXML
     fun btReservationsActionOpen(event: ActionEvent) {
-        // TODO
+        HeadController.setScene("reservationsList")
     }
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
         HeadController.setScene("about")
-        // TODO reset
     }
 
 }

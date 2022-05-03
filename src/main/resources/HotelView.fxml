@@ -18,7 +18,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="171.0" style="-fx-background-color: -white,-gray,gray;" styleClass="root" stylesheets="@css/theme.css">
          <children>
-            <Button fx:id="btHome" mnemonicParsing="false" onAction="#btHomeActionOpen" prefHeight="48.0" prefWidth="155.0" text="Home" textAlignment="CENTER">
+            <Button fx:id="btHome" disable="true" mnemonicParsing="false" onAction="#btHomeActionOpen" prefHeight="48.0" prefWidth="155.0" text="Home" textAlignment="CENTER">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
