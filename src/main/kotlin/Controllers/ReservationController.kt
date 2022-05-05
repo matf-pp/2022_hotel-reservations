@@ -276,7 +276,7 @@ class ReservationController {
         val id = tfIdNumber.text
         val offer = Offer(food1, selectedRoom.num_beds, rbParking.isSelected,
             rbWellness.isSelected, 0, rbParty.isSelected)
-        val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer)
+        val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer, tfTotalPrice.text.toDouble())
         reset()
         //val jsonString = Gson().toJson(new_reservation)  // json string
         //print(jsonString)

@@ -17,7 +17,7 @@ class Reservation(var first_name : String,
                   var selected_room: Room,
                   var id_room : Int,
                   var offer : Offer,
-                  )
+                  var price_table : Double = 0.0)
 {
     val final_price : Double
     var length_of_stay : Int = ChronoUnit.DAYS.between(date_from, date_to).toInt()
@@ -31,7 +31,7 @@ class Reservation(var first_name : String,
     fun add_reservation_to_file(){
         var file = File("reservations.txt")
         if(file.exists()){
-            file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}\n")
+            file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n")
         }
         else{
             println("Ne postoji fajl")

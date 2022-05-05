@@ -50,7 +50,7 @@ class PremiumApartment() : Room() {
     }
 
     override fun toString(): String {
-        return "Premium"
+        return "Premium Room"
     }
 
 }

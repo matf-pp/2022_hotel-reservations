@@ -71,6 +71,6 @@ class Basic(override var num_beds : Int) : Room(num_beds){
     }
 
     override fun toString(): String {
-        return "Basic"
+        return "Basic Room, ${num_beds}p"
     }
 }

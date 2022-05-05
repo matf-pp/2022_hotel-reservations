@@ -78,6 +78,7 @@ class MainWindow : Application()
                 val wellness = tokeni[11].trim().toBoolean()
                 val massage = tokeni[12].trim().toInt()
                 val party = tokeni[13].trim().toBoolean()
+                val price_table = tokeni[14].trim().toDouble()
 
                 val room : Room = when(num_beds){
                     2 -> if(id_room < 200) basic_room_two
@@ -91,7 +92,7 @@ class MainWindow : Application()
 
                 }
                 val offer = Offer(food, num_beds, parking, wellness, massage, party)
-                var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer)
+                var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer, price_table)
             }
         }
 

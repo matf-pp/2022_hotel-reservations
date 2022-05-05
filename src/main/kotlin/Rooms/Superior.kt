@@ -72,6 +72,6 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
     }
 
     override fun toString(): String {
-        return "Superior"
+        return "Superior Room, ${num_beds}p"
     }
 }

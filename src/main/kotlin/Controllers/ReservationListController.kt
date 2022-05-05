@@ -78,7 +78,7 @@ class ReservationListController : Initializable{
         tcDateTo.cellValueFactory = PropertyValueFactory("date_to")
         tcSelectedRoom.cellValueFactory = PropertyValueFactory("selected_room")
         tcTotalNights.cellValueFactory = PropertyValueFactory("length_of_stay")
-        tcTotalPrice.cellValueFactory = PropertyValueFactory("final_price")
+        tcTotalPrice.cellValueFactory = PropertyValueFactory("price_table")
 
         tbReservations.items = reservations
     }
