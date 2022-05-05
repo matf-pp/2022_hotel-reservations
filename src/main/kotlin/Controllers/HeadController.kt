@@ -19,12 +19,7 @@ open class HeadController(){
         lateinit var foodFull : Food
 
         lateinit var reservation : ReservationController
-
-        var list_reservations = mutableListOf<Reservation>()
-
-        fun add_reservation(reservation: Reservation){
-            list_reservations.add(reservation)
-        }
+        lateinit var reservationList : ReservationListController
 
         fun add_windows_to_map(id : String, room_scene : Scene) {
             scene_map[id] = room_scene

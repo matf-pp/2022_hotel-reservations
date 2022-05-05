@@ -24,7 +24,7 @@ class Reservation(var first_name : String,
 
     init {
         final_price = calculateFinalPrice()
-        HeadController.add_reservation(this)
+        HeadController.reservationList.add_reservation_to_table(this)
         reserve()
     }
 

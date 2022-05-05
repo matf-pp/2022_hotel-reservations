@@ -1,11 +1,16 @@
 package Controllers
 
+import ReservationThings.Reservation
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.Button
 import javafx.scene.control.TableView
 
 class ReservationListController {
+
+    fun add_reservation_to_table(reservation: Reservation){
+        // TODO
+    }
 
     @FXML
     private lateinit var btAbout: Button

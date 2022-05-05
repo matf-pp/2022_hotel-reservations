@@ -60,26 +60,26 @@ class MainWindow : Application()
         HeadController.foodFull = foodFull
 
         fun read_from_file(){
-            var file = File("reservations.txt")
-            var linije = file.readLines()
+            val file = File("reservations.txt")
+            val linije = file.readLines()
             for (linija in linije){
-                var tokeni = linija.split(", ")
-                var id_room = tokeni[0].trim().toInt()
-                var datum1 = tokeni[1].trim().split("-")
-                var datum2 = tokeni[2].trim().split("-")
-                var date_from = LocalDate.of(datum1[0].trim().toInt(), datum1[1].trim().toInt(), datum1[2].trim().toInt())
-                var date_to = LocalDate.of(datum2[0].trim().toInt(), datum2[1].trim().toInt(), datum2[2].trim().toInt())
-                var first_name = tokeni[3].trim()
-                var last_name = tokeni[4].trim()
-                var id_number = tokeni[5].trim()
-                var food = Food(tokeni[6].trim().toBoolean(), tokeni[7].trim().toBoolean(), tokeni[8].trim().toBoolean())
-                var num_beds = tokeni[9].trim().toInt()
-                var parking = tokeni[10].trim().toBoolean()
-                var wellness = tokeni[11].trim().toBoolean()
-                var massage = tokeni[12].trim().toInt()
-                var party = tokeni[13].trim().toBoolean()
+                val tokeni = linija.split(", ")
+                val id_room = tokeni[0].trim().toInt()
+                val datum1 = tokeni[1].trim().split("-")
+                val datum2 = tokeni[2].trim().split("-")
+                val date_from = LocalDate.of(datum1[0].trim().toInt(), datum1[1].trim().toInt(), datum1[2].trim().toInt())
+                val date_to = LocalDate.of(datum2[0].trim().toInt(), datum2[1].trim().toInt(), datum2[2].trim().toInt())
+                val first_name = tokeni[3].trim()
+                val last_name = tokeni[4].trim()
+                val id_number = tokeni[5].trim()
+                val food = Food(tokeni[6].trim().toBoolean(), tokeni[7].trim().toBoolean(), tokeni[8].trim().toBoolean())
+                val num_beds = tokeni[9].trim().toInt()
+                val parking = tokeni[10].trim().toBoolean()
+                val wellness = tokeni[11].trim().toBoolean()
+                val massage = tokeni[12].trim().toInt()
+                val party = tokeni[13].trim().toBoolean()
 
-                var room : Room = when(num_beds){
+                val room : Room = when(num_beds){
                     2 -> if(id_room < 200) basic_room_two
                             else  superior_room_two
                     3 -> if(id_room < 200) basic_room_three
@@ -90,12 +90,10 @@ class MainWindow : Application()
                                         else premium_apartment
 
                 }
-                var offer = Offer(food, num_beds, parking, wellness, massage, party)
+                val offer = Offer(food, num_beds, parking, wellness, massage, party)
                 var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer)
             }
         }
-
-        read_from_file()
 
         // fxml loaders
         val hotelFXML = FXMLLoader(MainWindow::class.java.getResource("HotelView.fxml"))
@@ -132,6 +130,8 @@ class MainWindow : Application()
         val superiorController : SuperiorController = superiorFXML.getController()
         val reservationController : ReservationController = reservationFXML.getController()
         val aboutController : AboutController = aboutFXML.getController()
+        val reservationListController : ReservationListController = reservationsListFXML.getController()
+        println(reservationListController)
 
         // init hotel controller
         hotelController.addRoomAndMapIt("basic_two" , basic_room_two)
@@ -150,6 +150,8 @@ class MainWindow : Application()
 
         // set reservation controller to be global (beacause the selected room will be chosen from room controllers)
         HeadController.reservation = reservationController
+        // set reservation list controller
+        HeadController.reservationList = reservationListController
 
         // init radio buttons
         hotelController.initRadioButton()
@@ -158,6 +160,9 @@ class MainWindow : Application()
         basicController.set_toggle_food()
         superiorController.set_toggle_food()
         premiumController.set_toggle_food()
+
+        // read data
+        read_from_file()
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Bingo hotel"
