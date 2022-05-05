@@ -1,5 +1,6 @@
 package ReservationThings
 
+import Controllers.HeadController
 import Rooms.Room
 import java.io.File
 import java.time.LocalDate
@@ -23,6 +24,7 @@ class Reservation(var first_name : String,
 
     init {
         final_price = calculateFinalPrice()
+        HeadController.add_reservation(this)
         reserve()
     }
 

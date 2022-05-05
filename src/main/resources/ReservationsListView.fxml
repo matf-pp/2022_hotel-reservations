@@ -55,7 +55,7 @@
       <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="911.0" stylesheets="@css/theme.css">
          <children>
             <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="96.0" prefWidth="416.0" text="Reservations" />
-            <TableView prefHeight="554.0" prefWidth="910.0">
+            <TableView fx:id="tbReservations" prefHeight="554.0" prefWidth="910.0">
               <columns>
                 <TableColumn prefWidth="130.0" text="First name" />
                   <TableColumn prefWidth="130.0" text="Last name" />

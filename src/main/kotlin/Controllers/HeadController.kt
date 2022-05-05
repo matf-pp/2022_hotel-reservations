@@ -2,6 +2,7 @@ package Controllers
 
 import Controllers.ReservationController
 import ReservationThings.Food
+import ReservationThings.Reservation
 import Rooms.Room
 import javafx.scene.Parent
 import javafx.scene.Scene
@@ -18,6 +19,12 @@ open class HeadController(){
         lateinit var foodFull : Food
 
         lateinit var reservation : ReservationController
+
+        var list_reservations = mutableListOf<Reservation>()
+
+        fun add_reservation(reservation: Reservation){
+            list_reservations.add(reservation)
+        }
 
         fun add_windows_to_map(id : String, room_scene : Scene) {
             scene_map[id] = room_scene

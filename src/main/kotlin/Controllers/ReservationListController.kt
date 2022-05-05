@@ -3,6 +3,7 @@ package Controllers
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.TableView
 
 class ReservationListController {
 
@@ -14,6 +15,9 @@ class ReservationListController {
 
     @FXML
     private lateinit var btReservations: Button
+
+    @FXML
+    private lateinit var tbReservations: TableView<Any>
 
     @FXML
     fun btAboutActionOpen(event: ActionEvent) {
