@@ -165,7 +165,7 @@ class MainWindow : Application()
         read_from_file()
 
         val scene = HeadController.scene_map["hotel"]
-        primaryStage.title = "Bingo hotel"
+        primaryStage.title = "Lucky 5"
         primaryStage.scene = scene
         primaryStage.show()
     }

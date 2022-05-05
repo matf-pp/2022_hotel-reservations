@@ -57,14 +57,13 @@
             <Label id="flatbee-xxlarge" alignment="CENTER" prefHeight="96.0" prefWidth="416.0" text="Reservations" />
             <TableView fx:id="tbReservations" prefHeight="554.0" prefWidth="910.0">
               <columns>
-                <TableColumn prefWidth="130.0" text="First name" />
-                  <TableColumn prefWidth="130.0" text="Last name" />
-                  <TableColumn prefWidth="130.0" text="Selected room" />
-                  <TableColumn prefWidth="130.0" text="Date from" />
-                  <TableColumn prefWidth="130.0" text="Date to" />
-                  <TableColumn prefWidth="130.0" text="Total nights" />
-                  <TableColumn prefWidth="130.0" text="Total price" />
-                  <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="tcFirstName" prefWidth="130.0" text="First name" />
+                  <TableColumn fx:id="tcLastName" prefWidth="130.0" text="Last name" />
+                  <TableColumn fx:id="tcSelectedRoom" prefWidth="130.0" text="Selected room" />
+                  <TableColumn fx:id="tcDateFrom" prefWidth="130.0" text="Date from" />
+                  <TableColumn fx:id="tcDateTo" prefWidth="130.0" text="Date to" />
+                  <TableColumn fx:id="tcTotalNights" prefWidth="130.0" text="Total nights" />
+                  <TableColumn fx:id="tcTotalPrice" prefWidth="130.0" text="Total price" />
               </columns>
             </TableView>
          </children>

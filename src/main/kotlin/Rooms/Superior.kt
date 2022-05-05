@@ -70,4 +70,8 @@ class Superior(override var num_beds : Int) : Room(num_beds) {
     override fun add_date(id : Int, date : LocalDate){
         availability[id]?.add(date)
     }
+
+    override fun toString(): String {
+        return "Superior"
+    }
 }

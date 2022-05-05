@@ -20,7 +20,7 @@ class Reservation(var first_name : String,
                   )
 {
     val final_price : Double
-    private var length_of_stay : Int = ChronoUnit.DAYS.between(date_from, date_to).toInt()
+    var length_of_stay : Int = ChronoUnit.DAYS.between(date_from, date_to).toInt()
 
     init {
         final_price = calculateFinalPrice()

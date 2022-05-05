@@ -49,4 +49,8 @@ class PremiumApartment() : Room() {
         availability[id]?.add(date)
     }
 
+    override fun toString(): String {
+        return "Premium"
+    }
+
 }
