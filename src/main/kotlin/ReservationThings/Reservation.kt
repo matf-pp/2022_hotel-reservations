@@ -2,7 +2,11 @@ package ReservationThings
 
 import Controllers.HeadController
 import Rooms.Room
+import java.io.BufferedReader
 import java.io.File
+import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.time.LocalDate
 import java.time.Period
 import java.time.chrono.ChronoLocalDate
@@ -29,13 +33,34 @@ class Reservation(var first_name : String,
     }
 
     fun add_reservation_to_file(){
-        var file = File("reservations.txt")
-        if(file.exists()){
-            file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n")
+        //
+        val output_string : String = "$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n"
+        val stream = HeadController.path_url.openStream()
+
+        val reader = BufferedReader(stream.reader())
+        var content: String
+        try {
+            content = reader.readText()
+        } finally {
+            reader.close()
         }
-        else{
-            println("Ne postoji fajl")
+
+        content += output_string
+        val input_stream : InputStream = content.byteInputStream()
+
+        input_stream.use { input ->
+            HeadController.file.outputStream().use { output ->
+                input.transferTo(output)
+            }
         }
+
+//        //
+//        if(HeadController.file.exists()){
+//            HeadController.file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n")
+//        }
+//        else{
+//            println("Ne postoji fajl")
+//        }
     }
 
     fun calculateFinalPrice() : Double {

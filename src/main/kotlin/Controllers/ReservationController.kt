@@ -283,7 +283,9 @@ class ReservationController {
         //var json = Json.encodeToString(new_reservation)
         //print(json)
         HeadController.setScene("hotel")
-        new_reservation.add_reservation_to_file()
+
+        // TODO
+        //new_reservation.add_reservation_to_file()
     }
 
     @FXML

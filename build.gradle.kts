@@ -13,6 +13,16 @@ repositories {
     mavenCentral()
 }
 
+tasks.jar {
+    manifest.attributes["Main-Class"] = "MainKt"
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        .map(::zipTree) // OR .map { zipTree(it) }
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 dependencies {
     testImplementation(kotlin("test"))
     implementation("com.google.code.gson:gson:2.9.0")

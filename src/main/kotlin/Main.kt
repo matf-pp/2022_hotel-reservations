@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import java.io.BufferedReader
 import java.io.File
 import java.time.LocalDate
 
@@ -60,9 +61,17 @@ class MainWindow : Application()
         HeadController.foodFull = foodFull
 
         fun read_from_file(){
-            val file = File("reservations.txt")
-            val linije = file.readLines()
-            for (linija in linije){
+            val inputStream = HeadController.path_url.openStream()
+
+            val reader = BufferedReader(inputStream.reader())
+            var content: String
+            try {
+                content = reader.readText()
+            } finally {
+                reader.close()
+            }
+
+            for (linija in content.reader().readLines()){
                 val tokeni = linija.split(", ")
                 val id_room = tokeni[0].trim().toInt()
                 val datum1 = tokeni[1].trim().split("-")
@@ -132,7 +141,6 @@ class MainWindow : Application()
         val reservationController : ReservationController = reservationFXML.getController()
         val aboutController : AboutController = aboutFXML.getController()
         val reservationListController : ReservationListController = reservationsListFXML.getController()
-        println(reservationListController)
 
         // init hotel controller
         hotelController.addRoomAndMapIt("basic_two" , basic_room_two)
@@ -163,7 +171,7 @@ class MainWindow : Application()
         premiumController.set_toggle_food()
 
         // read data
-        read_from_file()
+        //read_from_file()
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Lucky 5"

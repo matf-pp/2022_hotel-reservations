@@ -7,6 +7,7 @@ import Rooms.Room
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import java.io.File
 
 // ovde idu i ostali atributi
 open class HeadController(){
@@ -20,6 +21,10 @@ open class HeadController(){
 
         lateinit var reservation : ReservationController
         lateinit var reservationList : ReservationListController
+
+        val path = javaClass.classLoader.getResource("reservations.txt").path
+        val file = File(path)
+        val path_url = file.toURI().toURL()
 
         fun add_windows_to_map(id : String, room_scene : Scene) {
             scene_map[id] = room_scene

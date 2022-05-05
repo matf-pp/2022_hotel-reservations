@@ -1,5 +1,0 @@
-201, 2022-05-17, 2022-05-18, a, aa, 11111111, true, false, false, 2, false, true, 0, true, 8340.0
-301, 2022-05-26, 2022-05-27, aa, a, 11111111, false, false, true, 0, false, false, 0, false, 14750.0
-101, 2022-05-18, 2022-05-26, a, a, 11111111, true, false, false, 2, false, true, 0, true, 43720.0
-201, 2022-05-18, 2022-05-19, a, a, 11111111, true, false, false, 2, false, false, 0, false, 6700.0
-102, 2022-05-23, 2022-05-31, aa, a, 11111111, true, false, false, 2, false, true, 0, true, 43720.0
