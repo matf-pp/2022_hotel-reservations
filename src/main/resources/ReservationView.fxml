@@ -139,7 +139,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfFirstName" onKeyTyped="#tfActionFirstName" prefHeight="24.0" prefWidth="250.0" text="a">
+            <TextField fx:id="tfFirstName" onKeyTyped="#tfActionFirstName" prefHeight="24.0" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
@@ -161,7 +161,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfLastName" onKeyTyped="#tfActionLastName" prefHeight="24.0" prefWidth="235.0" text="a">
+            <TextField fx:id="tfLastName" onKeyTyped="#tfActionLastName" prefHeight="24.0" prefWidth="235.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
@@ -180,7 +180,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfEmail" onKeyTyped="#tfActionEmail" prefWidth="250.0" text="a@a.com">
+            <TextField fx:id="tfEmail" onKeyTyped="#tfActionEmail" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
@@ -199,7 +199,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfIdNumber" onKeyTyped="#tfActionIDNumber" prefWidth="250.0" text="11111111">
+            <TextField fx:id="tfIdNumber" onKeyTyped="#tfActionIDNumber" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
@@ -218,7 +218,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <TextField fx:id="tfPhone" onKeyTyped="#tfActionPhone" prefWidth="250.0" text="11111111">
+            <TextField fx:id="tfPhone" onKeyTyped="#tfActionPhone" prefWidth="250.0">
                <HBox.margin>
                   <Insets left="29.0" />
                </HBox.margin>
