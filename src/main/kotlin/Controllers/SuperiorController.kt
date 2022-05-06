@@ -342,8 +342,8 @@ class SuperiorController : Initializable{
 
     private fun loadImages(){
         for (i in 1..numOfPictures){
-            val file = File("src/main/resources/images/superior_detailed/superior_detailed_$i.jpg")
-            images.add(Image(file.toURI().toString()))
+            val image = Image(javaClass.getResourceAsStream("/images/superior_detailed/superior_detailed_$i.jpg"))
+            images.add(image)
         }
     }
 

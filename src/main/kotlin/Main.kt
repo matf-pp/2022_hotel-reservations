@@ -14,8 +14,9 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 import java.io.BufferedReader
-import java.io.File
+import java.io.InputStreamReader
 import java.time.LocalDate
+
 
 fun main(args: Array<String>)
 {
@@ -42,8 +43,10 @@ class MainWindow : Application()
 
         var premium_apartment  = PremiumApartment()
 
-        var valentines_day : SpecialOffer = SpecialOffer(Food(false,true,false), 2,true,true,
-            2,true,1.0,0.5,0.9,0.8,)
+        var valentines_day : SpecialOffer = SpecialOffer(
+            Food(false, true, false), 2, true, true,
+            2, true, 1.0, 0.5, 0.9, 0.8,
+        )
         var family_package_4 : SpecialOffer = SpecialOffer(Food(false,false,true),4,true,true,2,
             false, 0.0, 0.0, 0.5,0.7)
         var family_package_3 : SpecialOffer = SpecialOffer(Food(false,false,true),3,true,true,2,
@@ -61,15 +64,12 @@ class MainWindow : Application()
         HeadController.foodFull = foodFull
 
         fun read_from_file(){
-            val inputStream = HeadController.path_url.openStream()
+            val inputStream = javaClass
 
-            val reader = BufferedReader(inputStream.reader())
-            var content: String
-            try {
-                content = reader.readText()
-            } finally {
-                reader.close()
-            }
+            var content : String
+            javaClass.getResourceAsStream("/reservations.txt")
+                .use { `in` -> BufferedReader(InputStreamReader(`in`)).use { reader -> content = reader.readText() } }
+
 
             for (linija in content.reader().readLines()){
                 val tokeni = linija.split(", ")
@@ -171,7 +171,7 @@ class MainWindow : Application()
         premiumController.set_toggle_food()
 
         // read data
-        //read_from_file()
+        read_from_file()
 
         val scene = HeadController.scene_map["hotel"]
         primaryStage.title = "Lucky 5"

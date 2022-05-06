@@ -11,12 +11,13 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.paint.Color
 import javafx.scene.shape.Polygon
 import javafx.util.StringConverter
-import java.io.File
+import java.awt.image.BufferedImage
 import java.net.URL
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import java.util.*
+import javax.imageio.ImageIO
 
 class BasicController : Initializable{
 
@@ -343,8 +344,8 @@ class BasicController : Initializable{
 
     private fun loadImages(){
         for (i in 1..numOfPictures){
-            val file = File("src/main/resources/images/basic_detailed/basic_detailed_$i.jpg")
-            images.add(Image(file.toURI().toString()))
+            val image = Image(javaClass.getResourceAsStream("/images/basic_detailed/basic_detailed_$i.jpg"))
+            images.add(image)
         }
     }
 
