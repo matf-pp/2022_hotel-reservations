@@ -56,7 +56,7 @@ class MainWindow : Application()
             val create_file = HeadController.file.createNewFile()
         }
         catch (e : Exception){
-            println("Greska prilikom kreiranja fajla")
+            println("Greska prilikom kreiranja fajla!")
         }
 
 
