@@ -1,25 +1,25 @@
 package Controllers
 
-import Controllers.HeadController
 import ReservationThings.Food
 import ReservationThings.Offer
 import ReservationThings.Reservation
 import Rooms.Room
-import javafx.collections.FXCollections
-import javafx.collections.ObservableList
+import javafx.beans.value.ChangeListener
+import javafx.beans.value.ObservableValue
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
+import javafx.fxml.Initializable
 import javafx.scene.control.*
-import javafx.scene.input.InputMethodEvent
 import javafx.scene.input.KeyEvent
 import javafx.scene.input.MouseEvent
 import javafx.scene.paint.Color
+import java.net.URL
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
+import java.util.*
 
 
-
-class ReservationController {
+class ReservationController : Initializable{
 
     lateinit var  selectedRoom : Room
 
@@ -278,14 +278,9 @@ class ReservationController {
             rbWellness.isSelected, 0, rbParty.isSelected)
         val new_reservation = Reservation(name, last_name, id, dateFrom, dateTo, selectedRoom, selectedRoom.id, offer, tfTotalPrice.text.toDouble())
         reset()
-        //val jsonString = Gson().toJson(new_reservation)  // json string
-        //print(jsonString)
-        //var json = Json.encodeToString(new_reservation)
-        //print(json)
         HeadController.setScene("hotel")
-
-        // TODO
-        //new_reservation.add_reservation_to_file()
+        // TODO replace in init
+        new_reservation.add_reservation_to_file()
     }
 
     @FXML
@@ -293,6 +288,8 @@ class ReservationController {
         reset()
         HeadController.stage.scene = HeadController.scene_map["hotel"]
     }
+
+    // TODO ako se skine check sa dugmeta, treba ponovo da se izracuna cena sa 0 masaza
     @FXML
     fun rbActionMassage(event: ActionEvent) {
         if (rbMassage.isSelected) {
@@ -339,17 +336,12 @@ class ReservationController {
         }
     }
 
+    // TODO ovo nece biti potrebno jer se premesta u drugu funkciju dole na dnu
     @FXML
     fun cbActionMassage(event: MouseEvent) {
-        var price_room_food : Double = tfTotalPrice.text.toDouble()
-        var length_of_stay = ChronoUnit.DAYS.between(dateFrom, dateTo)
-        if(cbMassage.value != null){
-            tfTotalPrice.text = (price_room_food + Offer.price_massage1 * cbMassage.value as Int).toString()
-        }
-        else{
-            //tfTotalPrice.text = (price_room_food - Offer.price_wellness * selectedRoom.num_beds * length_of_stay).toString()
-        }
+        // todo delete
     }
+
 
     @FXML
     fun tfActionEmail(event: KeyEvent) {
@@ -374,6 +366,17 @@ class ReservationController {
     @FXML
     fun tfActionPhone(event: KeyEvent) {
         check_user_input()
+    }
+
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
+        cbMassage.getSelectionModel().selectedIndexProperty().addListener(object : ChangeListener<Number?> {
+            override fun changed(observableValue: ObservableValue<out Number?>?, number: Number?, number2: Number?) {
+                val num_of_massages = (number2 as Int?)?.let { cbMassage.getItems().get(it) }
+
+                println(num_of_massages)
+            }
+
+        })
     }
 
 }

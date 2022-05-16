@@ -1,6 +1,6 @@
 /* Text in all labels */
 .choice-box .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 .choice-box {
     -fx-background-color: #ADD8E6;
@@ -10,5 +10,5 @@
     -fx-selection-bar: midnightblue;
 }
 .choice-box .menu-item:focused .label{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }

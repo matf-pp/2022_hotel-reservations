@@ -34,33 +34,13 @@ class Reservation(var first_name : String,
 
     fun add_reservation_to_file(){
         //
-        val output_string : String = "$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n"
-        val stream = HeadController.path_url.openStream()
-
-        val reader = BufferedReader(stream.reader())
-        var content: String
         try {
-            content = reader.readText()
-        } finally {
-            reader.close()
+            val toFile : String =  "$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n"
+            HeadController.file.appendText(toFile)
         }
-
-        content += output_string
-        val input_stream : InputStream = content.byteInputStream()
-
-        input_stream.use { input ->
-            HeadController.file.outputStream().use { output ->
-                input.transferTo(output)
-            }
+        catch (e : Exception){
+            println("Greska kod dodavanja rezervacije u fajl ${e.toString()}");
         }
-
-//        //
-//        if(HeadController.file.exists()){
-//            HeadController.file.appendText("$id_room, $date_from, $date_to, $first_name, $last_name, $id_number, ${offer.toString()}, $price_table\n")
-//        }
-//        else{
-//            println("Ne postoji fajl")
-//        }
     }
 
     fun calculateFinalPrice() : Double {

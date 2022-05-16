@@ -14,6 +14,7 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 import java.io.BufferedReader
+import java.io.File
 import java.io.InputStreamReader
 import java.time.LocalDate
 
@@ -63,45 +64,53 @@ class MainWindow : Application()
         HeadController.foodHalf = foodHalf
         HeadController.foodFull = foodFull
 
+
+        // val create new file
+        try {
+            val create_file = HeadController.file.createNewFile()
+        }
+        catch (e : Exception){
+            println("Greska prilikom kreiranja fajla")
+        }
+
+
         fun read_from_file(){
-            val inputStream = javaClass
+            try {
+                for (linija in HeadController.file.readLines()){
+                    val tokeni = linija.split(", ")
+                    val id_room = tokeni[0].trim().toInt()
+                    val datum1 = tokeni[1].trim().split("-")
+                    val datum2 = tokeni[2].trim().split("-")
+                    val date_from = LocalDate.of(datum1[0].trim().toInt(), datum1[1].trim().toInt(), datum1[2].trim().toInt())
+                    val date_to = LocalDate.of(datum2[0].trim().toInt(), datum2[1].trim().toInt(), datum2[2].trim().toInt())
+                    val first_name = tokeni[3].trim()
+                    val last_name = tokeni[4].trim()
+                    val id_number = tokeni[5].trim()
+                    val food = Food(tokeni[6].trim().toBoolean(), tokeni[7].trim().toBoolean(), tokeni[8].trim().toBoolean())
+                    val num_beds = tokeni[9].trim().toInt()
+                    val parking = tokeni[10].trim().toBoolean()
+                    val wellness = tokeni[11].trim().toBoolean()
+                    val massage = tokeni[12].trim().toInt()
+                    val party = tokeni[13].trim().toBoolean()
+                    val price_table = tokeni[14].trim().toDouble()
 
-            var content : String
-            javaClass.getResourceAsStream("/reservations.txt")
-                .use { `in` -> BufferedReader(InputStreamReader(`in`)).use { reader -> content = reader.readText() } }
+                    val room : Room = when(num_beds){
+                        2 -> if(id_room < 200) basic_room_two
+                        else  superior_room_two
+                        3 -> if(id_room < 200) basic_room_three
+                        else  superior_room_three
 
+                        else -> if(id_room < 200) basic_room_four
+                        else if(id_room < 300) superior_room_four
+                        else premium_apartment
 
-            for (linija in content.reader().readLines()){
-                val tokeni = linija.split(", ")
-                val id_room = tokeni[0].trim().toInt()
-                val datum1 = tokeni[1].trim().split("-")
-                val datum2 = tokeni[2].trim().split("-")
-                val date_from = LocalDate.of(datum1[0].trim().toInt(), datum1[1].trim().toInt(), datum1[2].trim().toInt())
-                val date_to = LocalDate.of(datum2[0].trim().toInt(), datum2[1].trim().toInt(), datum2[2].trim().toInt())
-                val first_name = tokeni[3].trim()
-                val last_name = tokeni[4].trim()
-                val id_number = tokeni[5].trim()
-                val food = Food(tokeni[6].trim().toBoolean(), tokeni[7].trim().toBoolean(), tokeni[8].trim().toBoolean())
-                val num_beds = tokeni[9].trim().toInt()
-                val parking = tokeni[10].trim().toBoolean()
-                val wellness = tokeni[11].trim().toBoolean()
-                val massage = tokeni[12].trim().toInt()
-                val party = tokeni[13].trim().toBoolean()
-                val price_table = tokeni[14].trim().toDouble()
-
-                val room : Room = when(num_beds){
-                    2 -> if(id_room < 200) basic_room_two
-                            else  superior_room_two
-                    3 -> if(id_room < 200) basic_room_three
-                    else  superior_room_three
-
-                    else -> if(id_room < 200) basic_room_four
-                                else if(id_room < 300) superior_room_four
-                                        else premium_apartment
-
+                    }
+                    val offer = Offer(food, num_beds, parking, wellness, massage, party)
+                    var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer, price_table)
                 }
-                val offer = Offer(food, num_beds, parking, wellness, massage, party)
-                var new_reservation = Reservation(first_name, last_name, id_number, date_from, date_to, room, id_room, offer, price_table)
+            }
+            catch (e : Exception){
+                println("Greska kod citanja iz fajla: ${e.toString()}")
             }
         }
 
