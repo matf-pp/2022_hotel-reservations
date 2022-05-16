@@ -22,8 +22,10 @@ Za GUI je koriscena JavaFX biblioteka, a kao pomocni alat za razvoj iste korisce
 ---------------------------------------------------------
 ## Pokretanje
 Preuzeti .jar datoteku iz odeljka Releases, pozicionirati se u terminalu na mesto gde je datoteka sacuvana i pokrenuti je sa komandom:
-- java -jar naziv_datoteke.jar
-Aplikacija radi i testirana je na Linux operativnom sistemu (Ubuntu).
+
+- java -jar hotel-reservations.jar
+- Aplikacija radi i testirana je na Linux operativnom sistemu (Ubuntu). Za pokretanje je potrebno imati verziju instaliranu verziju jave 11 ili novije.
+
 ---------------------------------------------------------
 ## Autori
 - Andrijana Jankovic - mr18137@alas.matf.bg.ac.rs
