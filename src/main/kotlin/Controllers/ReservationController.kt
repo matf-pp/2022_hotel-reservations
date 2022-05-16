@@ -27,6 +27,8 @@ class ReservationController : Initializable{
     lateinit var dateTo : LocalDate
     lateinit var food1: Food
 
+    var current_num_of_massages = 0
+
     fun fill_fields(date1 : LocalDate, date2 : LocalDate, food : ReservationThings.Food, price_room_food : String) {
         var type: String = if (selectedRoom is Rooms.Basic) "Basic"
         else if (selectedRoom is Rooms.Superior) "Superior"
@@ -296,9 +298,11 @@ class ReservationController : Initializable{
             if (indikator == 0)
                 initialize()
             unlock_cb()
+            tfTotalPrice.text = (tfTotalPrice.text.toDouble() + current_num_of_massages * Offer.price_massage1).toString()
         }
         else{
             lock_cb()
+            tfTotalPrice.text = (tfTotalPrice.text.toDouble() - current_num_of_massages * Offer.price_massage1).toString()
         }
     }
 
@@ -369,11 +373,18 @@ class ReservationController : Initializable{
     }
 
     override fun initialize(location: URL?, resources: ResourceBundle?) {
+
         cbMassage.getSelectionModel().selectedIndexProperty().addListener(object : ChangeListener<Number?> {
             override fun changed(observableValue: ObservableValue<out Number?>?, number: Number?, number2: Number?) {
                 val num_of_massages = (number2 as Int?)?.let { cbMassage.getItems().get(it) }
 
-                println(num_of_massages)
+                var price_room_food : Double = tfTotalPrice.text.toDouble()
+                val before = price_room_food - Offer.price_massage1 * current_num_of_massages
+                val plus = Offer.price_massage1 * num_of_massages.toString().toDouble()
+                val final = before + plus
+                tfTotalPrice.text = final.toString()
+
+                current_num_of_massages = num_of_massages.toString().toInt()
             }
 
         })
