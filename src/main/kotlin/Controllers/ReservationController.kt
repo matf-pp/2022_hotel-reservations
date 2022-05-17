@@ -3,6 +3,7 @@ package Controllers
 import ReservationThings.Food
 import ReservationThings.Offer
 import ReservationThings.Reservation
+import Rooms.PremiumApartment
 import Rooms.Room
 import javafx.beans.value.ChangeListener
 import javafx.beans.value.ObservableValue
@@ -39,6 +40,32 @@ class ReservationController : Initializable{
         tfDateTo.text = date2.toString()
         tfTotalNights.text = ChronoUnit.DAYS.between(date1, date2).toString()
         tfTotalPrice.text = price_room_food
+
+        // TODO Parking, welness & party
+
+        if (selectedRoom is PremiumApartment) {
+            lbPriceParking.text = "INCLUDED"
+            lbPriceParty.text = "INCLUDED"
+            lbPriceWellness.text = "INCLUDED"
+            lbPriceMassage.text = "* One massage included for each staying day"
+
+            lbInfoParking.text = "* Parking included for whole staying period"
+            lbInfoParty.text = "* Party events included for all guests in room"
+            lbInfoWellness.text = "* Wellness included for all guests in room"
+        }
+        else {
+            val length_of_stay = ChronoUnit.DAYS.between(date1, date2)
+            lbPriceParking.text = "+" + (Offer.price_parking * length_of_stay).toString()
+            lbPriceParty.text = "+" + (Offer.price_party * selectedRoom.num_beds).toString()
+            lbPriceWellness.text = "+" + (Offer.price_wellness * selectedRoom.num_beds * length_of_stay).toString()
+            lbPriceMassage.text = "* Price per massage: ${Offer.price_massage1}"
+
+            lbInfoParking.text = "* Parking included for whole staying period"
+            lbInfoParty.text = "* Party events included for all guests in room"
+            lbInfoWellness.text = "* Wellness included for all guests"
+
+        }
+
         lock_cb()
 
         // TODO baca neki exception sada
@@ -160,7 +187,7 @@ class ReservationController : Initializable{
         }
 
         // ID NUMBER
-        val patternID = Regex("^\\d{8}$")
+        val patternID = Regex("^\\d{6,}$")
         if(tfIdNumber.text.equals("")){
             setLabelTextAndColor(lbCheckIDNumber, "EMPTY", "yellow")
         }
@@ -272,9 +299,30 @@ class ReservationController : Initializable{
     private lateinit var lbCheckPhone: Label
 
     @FXML
+    private lateinit var lbPriceParking: Label
+
+    @FXML
+    private lateinit var lbPriceParty: Label
+
+    @FXML
+    private lateinit var lbPriceWellness: Label
+
+    @FXML
+    private lateinit var lbPriceMassage: Label
+
+    @FXML
+    private lateinit var lbInfoParking: Label
+
+    @FXML
+    private lateinit var lbInfoParty: Label
+
+    @FXML
+    private lateinit var lbInfoWellness: Label
+
+    @FXML
     fun btActionConfrimReservation(event: ActionEvent) {
-        val name = tfFirstName.text
-        val last_name = tfLastName.text
+        val name = tfFirstName.text.lowercase().replaceFirstChar { it -> it.uppercase() }
+        val last_name = tfLastName.text.lowercase().replaceFirstChar { it -> it.uppercase() }
         val id = tfIdNumber.text
         val offer = Offer(food1, selectedRoom.num_beds, rbParking.isSelected,
             rbWellness.isSelected, 0, rbParty.isSelected)

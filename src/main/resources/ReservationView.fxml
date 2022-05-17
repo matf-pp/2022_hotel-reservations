@@ -36,6 +36,11 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </RadioButton>
+            <Label id="flatbee-large" fx:id="lbPriceParking" alignment="CENTER" prefHeight="24.0" prefWidth="106.0" style="-fx-text-fill: rgb(0,255,0); -fx-border-color: black;" styleClass="label_black">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
          </children>
          <VBox.margin>
             <Insets top="20.0" />
@@ -58,6 +63,11 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </RadioButton>
+            <Label id="flatbee-large" fx:id="lbPriceWellness" alignment="CENTER" prefHeight="24.0" prefWidth="106.0" style="-fx-text-fill: rgb(0,255,0); -fx-border-color: black;" styleClass="label_black">
+               <HBox.margin>
+                  <Insets left="7.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
@@ -97,6 +107,11 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </RadioButton>
+            <Label id="flatbee-large" fx:id="lbPriceParty" alignment="CENTER" prefHeight="24.0" prefWidth="106.0" style="-fx-text-fill: rgb(0,255,0); -fx-border-color: black;" styleClass="label_black">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="0.0" prefWidth="600.0">
@@ -240,11 +255,26 @@
             <Insets left="50.0" right="50.0" top="20.0" />
          </VBox.margin>
       </Button>
-      <Button id="red" fx:id="btExit" mnemonicParsing="false" onAction="#btActionExit" prefHeight="47.0" prefWidth="104.0" text="EXIT">
+      <HBox alignment="CENTER" prefHeight="124.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="124.0" prefWidth="400.0">
+               <children>
+                  <Label id="intermediate" fx:id="lbPriceMassage" prefHeight="50.0" prefWidth="401.0" style="-fx-text-fill: rgb(20,20,20);" text="Massage" />
+                  <Label id="intermediate" fx:id="lbInfoParking" prefHeight="50.0" prefWidth="401.0" style="-fx-text-fill: rgb(20,20,20);" text="Parking" />
+                  <Label id="intermediate" fx:id="lbInfoWellness" prefHeight="50.0" prefWidth="401.0" style="-fx-text-fill: rgb(20,20,20);" text="Wellness" />
+                  <Label id="intermediate" fx:id="lbInfoParty" prefHeight="50.0" prefWidth="401.0" style="-fx-text-fill: rgb(20,20,20);" text="Party" />
+               </children>
+            </VBox>
+            <Button id="red" fx:id="btExit" mnemonicParsing="false" onAction="#btActionExit" prefHeight="47.0" prefWidth="146.0" text="EXIT">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <VBox.margin>
-            <Insets bottom="20.0" left="470.0" top="30.0" />
+            <Insets />
          </VBox.margin>
-      </Button>
+      </HBox>
    </children>
    <stylesheets>
       <URL value="@css/theme.css" />
